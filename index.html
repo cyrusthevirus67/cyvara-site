@@ -889,7 +889,74 @@
               what it could add in extra booked jobs each month.
             </p>
             <!-- You can connect this to your backend later -->
-            <form>
+<form action="https://formspree.io/f/mzznqkae" method="POST">
+  <!-- Hidden Formspree settings -->
+  <input type="hidden" name="_subject" value="New Cyvara Demo Booking" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_redirect" value="https://cyvara.co/#contact" />
+
+  <div>
+    <label for="name">Name</label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      placeholder="John Smith"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      placeholder="you@business.com"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="phone">Phone</label>
+    <input
+      id="phone"
+      name="phone"
+      type="tel"
+      placeholder="(555) 555-5555"
+    />
+  </div>
+
+  <div>
+    <label for="niche">Business type</label>
+    <select id="niche" name="business_type" required>
+      <option value="">Choose one</option>
+      <option>Roofing</option>
+      <option>Landscaping</option>
+      <option>Car detailing</option>
+      <option>Plumbing / HVAC</option>
+      <option>Cleaning</option>
+      <option>Gym / Fitness</option>
+      <option>Med spa</option>
+      <option>Other</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="message">What do you want to automate?</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Missed calls, quoting, booking, follow-up, etc."
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn-submit">
+    Submit demo request
+  </button>
+
+</form>
               <div>
                 <label for="name">Name</label>
                 <input id="name" type="text" placeholder="John Smith" />
