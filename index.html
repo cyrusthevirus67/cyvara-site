@@ -159,6 +159,30 @@
     .hero-subtitle { font-size: 15px; color: var(--muted); max-width: 480px; margin-bottom: 20px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
 
+    
+.dashboard-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #4f46e5, #22c55e);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+.dashboard-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.dashboard-cta-wrap {
+  margin-top: 18px;
+  text-align: center;
+}
     .btn-primary {
       padding: 11px 22px;
       border-radius: var(--radius-pill);
@@ -595,7 +619,7 @@
         </div>
       </section>
 
-      <!-- CONTACT (this is what makes ALL booking buttons work) -->
+           <!-- CONTACT (this is what makes ALL booking buttons work) -->
       <section id="contact" class="section">
         <div class="section-header">
           <h2 class="section-title">Book a free demo</h2>
@@ -673,6 +697,12 @@
               If you don’t see value in the first 30 days, you can cancel your subscription — no long-term contract.
             </p>
           </div>
+        </div>
+
+        <div class="dashboard-cta-wrap">
+          <a class="dashboard-cta" href="https://dashboard.cyvara.co/login">
+            Client Dashboard Login
+          </a>
         </div>
       </section>
     </main>
