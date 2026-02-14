@@ -12,6 +12,23 @@
 </head>
 
   <style>
+/* Dashboard login button */
+.nav-dashboard {
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: linear-gradient(135deg, #4f46e5, #22c55e);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+.nav-dashboard:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}    
     html { scroll-behavior: smooth; }
 
     :root {
@@ -374,7 +391,7 @@
   <a href="#services">Services</a>
   <a href="#pricing">Pricing</a>
   <a href="#how">How it works</a>
-  <a href="https://dashboard.cyvara.co/login">Dashboard Login</a>
+  <a href="https://dashboard.cyvara.co/login" class="nav-dashboard">Client Dashboard Login</a>
   <a href="#contact" class="nav-cta">Book a free demo</a>
 </nav>
 
