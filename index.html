@@ -12,6 +12,46 @@
 </head>
 
   <style>
+
+    .client-login {
+  margin-top: 30px;
+  padding: 18px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  background: radial-gradient(circle at top left, #111827, #020617);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.client-login h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.client-login p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.client-login .dashboard-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #4f46e5, #22c55e);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
+  transition: transform 0.15s ease-out, filter 0.15s ease-out;
+}
+
+.client-login .dashboard-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
 /* Dashboard login button */
 .nav-dashboard {
   padding: 9px 18px;
@@ -706,7 +746,13 @@
         </div>
       </section>
     </main>
-
+    <div class="client-login">
+      <h3>Already a client?</h3>
+      <p>Sign in to your client dashboard to track what Cyvara is doing for your business.</p>
+      <a class="dashboard-cta" href="https://dashboard.cyvara.co/login">
+        Client Dashboard Login
+      </a>
+    </div>
     <footer>
       © <span>Cyvara</span> · Intelligent automation for modern local businesses.
     </footer>
