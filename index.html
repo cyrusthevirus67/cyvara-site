@@ -9,66 +9,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Cyvara builds custom AI systems for local businesses..." />
-</head>
 
   <style>
-
-    .client-login {
-  margin-top: 30px;
-  padding: 18px;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(31, 41, 55, 0.9);
-  background: radial-gradient(circle at top left, #111827, #020617);
-  box-shadow: var(--shadow-soft);
-  text-align: center;
-}
-
-.client-login h3 {
-  margin: 0 0 6px;
-  font-size: 16px;
-}
-
-.client-login p {
-  margin: 0 0 12px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.client-login .dashboard-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, #4f46e5, #22c55e);
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
-  transition: transform 0.15s ease-out, filter 0.15s ease-out;
-}
-
-.client-login .dashboard-cta:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-}
-/* Dashboard login button */
-.nav-dashboard {
-  padding: 9px 18px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background: linear-gradient(135deg, #4f46e5, #22c55e);
-  color: white;
-  font-size: 13px;
-  font-weight: 700;
-  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
-  transition: transform 0.15s ease-out, filter 0.15s ease-out;
-}
-
-.nav-dashboard:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-}    
     html { scroll-behavior: smooth; }
 
     :root {
@@ -98,7 +40,11 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69f7d6a6cc1c631b18113688" data-source="WEB_USER"></script>    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: white !important;
+      text-decoration: none;
+    }
 
     .page { max-width: 1200px; margin: 0 auto; padding: 24px 18px 80px; }
 
@@ -126,6 +72,7 @@
 
     nav { display: flex; align-items: center; gap: 18px; font-size: 14px; color: var(--muted); }
     nav a { padding: 4px 0; position: relative; }
+
     nav a::after {
       content: "";
       position: absolute;
@@ -137,6 +84,7 @@
       background: linear-gradient(90deg, #4f46e5, #22c55e);
       transition: width 0.18s ease-out;
     }
+
     nav a:hover::after { width: 100%; }
 
     .nav-cta {
@@ -148,7 +96,24 @@
       font-weight: 600;
       box-shadow: 0 12px 30px rgba(79, 70, 229, 0.4);
     }
-    .nav-cta:hover { filter: brightness(1.05); transform: translateY(-1px); transition: 0.15s ease-out; }
+
+    .nav-dashboard {
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
+      transition: transform 0.15s ease-out, filter 0.15s ease-out;
+    }
+
+    .nav-dashboard:hover,
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
 
     .hero {
       display: grid;
@@ -157,6 +122,7 @@
       padding: 26px 12px 40px;
       align-items: center;
     }
+
     @media (max-width: 880px) {
       .hero { grid-template-columns: minmax(0, 1fr); }
       nav { display: none; }
@@ -175,6 +141,7 @@
       color: var(--muted);
       margin-bottom: 14px;
     }
+
     .pill-dot {
       width: 8px;
       height: 8px;
@@ -189,39 +156,27 @@
       letter-spacing: -0.04em;
       margin-bottom: 10px;
     }
+
     h1 span.highlight {
       background: linear-gradient(120deg, #4f46e5, #a855f7, #22c55e);
       -webkit-background-clip: text;
       color: transparent;
     }
 
-    .hero-subtitle { font-size: 15px; color: var(--muted); max-width: 480px; margin-bottom: 20px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 20px;
+    }
 
-    
-.dashboard-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, #4f46e5, #22c55e);
-  color: white;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
-  transition: transform 0.15s ease-out, filter 0.15s ease-out;
-}
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
 
-.dashboard-cta:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-}
-
-.dashboard-cta-wrap {
-  margin-top: 18px;
-  text-align: center;
-}
     .btn-primary {
       padding: 11px 22px;
       border-radius: var(--radius-pill);
@@ -234,47 +189,35 @@
       box-shadow: 0 14px 35px rgba(22, 163, 74, 0.45);
     }
 
-    .btn-outline {
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-      font-size: 13px;
-      cursor: pointer;
-    }
-
     .hero-footnote { font-size: 12px; color: var(--muted); }
     .hero-footnote span { color: #a5b4fc; font-weight: 500; }
 
-    /* hero-card styles kept (even if you don’t use it right now) */
-    .hero-card {
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 18px;
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.25), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-    .hero-card-inner { position: relative; z-index: 1; }
-
     .section { padding: 26px 12px 0; }
-    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; gap: 10px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 10px;
+    }
+
     .section-title { font-size: 20px; letter-spacing: -0.03em; }
     .section-subtitle { font-size: 13px; color: var(--muted); max-width: 420px; }
 
-    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    @media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 720px) { .grid-3 { grid-template-columns: minmax(0, 1fr); } }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .grid-3 { grid-template-columns: minmax(0, 1fr); }
+    }
 
     .card {
       background: linear-gradient(145deg, #020617, #020617 60%, #020617);
@@ -283,13 +226,38 @@
       padding: 12px 13px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
-    .card-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.12em; }
+
+    .card-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
     .card-title { font-size: 15px; margin-bottom: 7px; font-weight: 600; }
     .card-body { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
 
-    .card-list { list-style: none; margin: 0; padding: 0; font-size: 12px; color: #e5e7eb; }
-    .card-list li { padding-left: 16px; position: relative; margin-bottom: 6px; }
-    .card-list li::before { content: "•"; position: absolute; left: 0; color: #4f46e5; }
+    .card-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .card-list li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #4f46e5;
+    }
 
     .pricing-tag { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
     .pricing-tag span { font-size: 11px; color: var(--muted); font-weight: 400; }
@@ -316,6 +284,7 @@
       display: inline-block;
       cursor: pointer;
     }
+
     .pricing-cta.primary {
       border: none;
       background: linear-gradient(135deg, #4f46e5, #22c55e);
@@ -323,11 +292,27 @@
       box-shadow: 0 10px 32px rgba(22, 101, 52, 0.55);
     }
 
-    .how-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    @media (max-width: 900px) { .how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 720px) { .how-grid { grid-template-columns: minmax(0, 1fr); } }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
 
-    .step-number { font-size: 11px; color: #a5b4fc; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.18em; }
+    @media (max-width: 900px) {
+      .how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .how-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .step-number {
+      font-size: 11px;
+      color: #a5b4fc;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
 
     .contact {
       margin-top: 22px;
@@ -336,7 +321,10 @@
       gap: 18px;
       align-items: flex-start;
     }
-    @media (max-width: 880px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+
+    @media (max-width: 880px) {
+      .contact { grid-template-columns: minmax(0, 1fr); }
+    }
 
     .contact-card {
       background: radial-gradient(circle at top left, #111827, #020617);
@@ -345,10 +333,12 @@
       padding: 16px 16px 14px;
       box-shadow: var(--shadow-soft);
     }
+
     .contact-card h3 { font-size: 16px; margin-bottom: 4px; }
     .contact-card p { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
 
     form { display: grid; gap: 8px; margin-top: 6px; }
+
     label { font-size: 12px; color: var(--muted); }
 
     input, textarea, select {
@@ -369,6 +359,14 @@
 
     textarea { min-height: 80px; resize: vertical; }
 
+    .sms-consent {
+      color: white;
+      font-size: 11px;
+      line-height: 1.45;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
     .btn-submit {
       margin-top: 6px;
       padding: 9px 18px;
@@ -384,6 +382,46 @@
     .mini-faq { font-size: 12px; color: var(--muted); }
     .mini-faq p { margin-bottom: 4px; }
 
+    .client-login {
+      margin-top: 30px;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .client-login h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .client-login p {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .dashboard-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
+      transition: transform 0.15s ease-out, filter 0.15s ease-out;
+    }
+
+    .dashboard-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
     footer {
       margin-top: 30px;
       font-size: 11px;
@@ -392,6 +430,7 @@
       padding-top: 14px;
       text-align: center;
     }
+
     footer span { color: #9f9ffb; }
   </style>
 </head>
@@ -401,7 +440,6 @@
     <header>
       <div class="logo">
         <div class="logo-svg">
-          <!-- UPDATED LOGO SVG (only change) -->
           <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cyvara logo">
             <defs>
               <linearGradient id="cyvGrad" x1="18" y1="18" x2="82" y2="82" gradientUnits="userSpaceOnUse">
@@ -417,10 +455,8 @@
               </filter>
             </defs>
 
-            <!-- clean ring -->
             <circle cx="50" cy="50" r="44" stroke="url(#cyvGrad)" stroke-width="6" opacity="0.95"/>
 
-            <!-- bold C monogram -->
             <path
               d="M66 33
                  C61 28 55 25 47 25
@@ -434,34 +470,31 @@
               filter="url(#softGlow)"
             />
 
-            <!-- subtle circuit nodes -->
             <circle cx="70" cy="34" r="3.8" fill="#4f46e5"/>
             <circle cx="72" cy="66" r="3.8" fill="#22c55e"/>
             <circle cx="30" cy="50" r="3.3" fill="#a855f7"/>
 
-            <!-- small connector ticks -->
             <path d="M67 35 L76 28" stroke="#4f46e5" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
             <path d="M67 65 L76 72" stroke="#22c55e" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
           </svg>
         </div>
+
         <div>
           <div class="logo-text-main">Cyvara</div>
           <div class="logo-text-sub">AI Automation Systems</div>
         </div>
       </div>
 
-<nav>
-  <a href="#services">Services</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#how">How it works</a>
-  <a href="https://dashboard.cyvara.co/login" class="nav-dashboard">Client Dashboard Login</a>
-  <a href="#contact" class="nav-cta">Book a free demo</a>
-</nav>
-
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How it works</a>
+        <a href="https://dashboard.cyvara.co/login" class="nav-dashboard">Client Dashboard Login</a>
+        <a href="#contact" class="nav-cta">Book a free demo</a>
+      </nav>
     </header>
 
     <main>
-      <!-- HERO -->
       <section class="hero">
         <div>
           <div class="pill">
@@ -489,7 +522,6 @@
         </div>
       </section>
 
-      <!-- SERVICES -->
       <section id="services" class="section">
         <div class="section-header">
           <h2 class="section-title">What we build for you</h2>
@@ -526,7 +558,7 @@
               <li>Custom pricing rules for your services</li>
               <li>Instant quote ranges via text & email</li>
               <li>1–3 day follow-up sequences for unbooked leads</li>
-              <li>Works across phone, web forms, and chat</li>
+              <li>Works across phone and website forms</li>
             </ul>
           </div>
 
@@ -547,7 +579,6 @@
         </div>
       </section>
 
-      <!-- PRICING -->
       <section id="pricing" class="section">
         <div class="section-header">
           <h2 class="section-title">Pricing & packages</h2>
@@ -587,7 +618,7 @@
             <ul class="card-list">
               <li>Advanced AI call & chat flows</li>
               <li>Custom pricing & estimate engine</li>
-              <li>Automatic SMS + email follow-up (1–3 days)</li>
+              <li>Automatic SMS + email follow-up</li>
               <li>Calendar booking & rescheduling</li>
               <li>Up to 8 connected workflows</li>
               <li>3 updates / optimizations per month</li>
@@ -606,7 +637,7 @@
             <ul class="card-list">
               <li>AI “employee” handling calls, chat & text</li>
               <li>Custom simple dashboard for tracking leads</li>
-              <li>Advanced workflows (missed calls, reviews, reminders)</li>
+              <li>Advanced workflows</li>
               <li>Priority support & ongoing refinements</li>
               <li>Monthly performance review & strategy call</li>
             </ul>
@@ -615,7 +646,6 @@
         </div>
       </section>
 
-      <!-- HOW IT WORKS -->
       <section id="how" class="section">
         <div class="section-header">
           <h2 class="section-title">How it works</h2>
@@ -632,6 +662,7 @@
               We learn about your business, services, pricing, and how you currently handle calls, messages, and leads.
             </p>
           </div>
+
           <div class="card">
             <div class="step-number">Step 02</div>
             <div class="card-title">We design your AI system</div>
@@ -640,6 +671,7 @@
               and follow-up engine around your rules and preferences.
             </p>
           </div>
+
           <div class="card">
             <div class="step-number">Step 03</div>
             <div class="card-title">Connect to your existing tools</div>
@@ -648,6 +680,7 @@
               and any internal tracking you rely on.
             </p>
           </div>
+
           <div class="card">
             <div class="step-number">Step 04</div>
             <div class="card-title">Go live & optimize</div>
@@ -658,7 +691,6 @@
         </div>
       </section>
 
-           <!-- CONTACT (this is what makes ALL booking buttons work) -->
       <section id="contact" class="section">
         <div class="section-header">
           <h2 class="section-title">Book a free demo</h2>
@@ -692,7 +724,7 @@
 
               <div>
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" required />
               </div>
 
               <div>
@@ -715,13 +747,16 @@
                 <textarea id="message" name="message" placeholder="Missed calls, quoting, booking, follow-up, etc." required></textarea>
               </div>
 
+              <p class="sms-consent">
+                By submitting this form, you agree to receive SMS messages from Cyvara regarding your inquiry.
+                Message frequency may vary. Reply STOP to opt out.
+              </p>
+
               <button type="submit" class="btn-submit">Submit demo request</button>
             </form>
           </div>
-<p class="sms-consent">
-  By submitting this form, you agree to receive SMS messages from Cyvara regarding your inquiry.
-  Message frequency may vary. Reply STOP to opt out.
-</p>          <div class="mini-faq">
+
+          <div class="mini-faq">
             <p><strong>Do I need new software?</strong></p>
             <p>
               No. We plug into what you already use — your current phone setup, calendar, website, and internal tools —
@@ -739,9 +774,9 @@
             </p>
           </div>
         </div>
-        
       </section>
     </main>
+
     <div class="client-login">
       <h3>Already a client?</h3>
       <p>Sign in to your client dashboard to track what Cyvara is doing for your business.</p>
@@ -749,10 +784,10 @@
         Client Dashboard Login
       </a>
     </div>
+
     <footer>
       © <span>Cyvara</span> · Intelligent automation for modern local businesses.
     </footer>
   </div>
 </body>
 </html>
-
