@@ -432,6 +432,78 @@
     }
 
     footer span { color: #9f9ffb; }
+
+
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-top: 4px;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .checkbox-row input {
+      width: auto;
+      margin-top: 3px;
+      accent-color: #4f46e5;
+    }
+
+    .checkbox-row label {
+      color: #e5e7eb;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .sms-consent a,
+    .checkbox-row a,
+    .legal-section a,
+    footer a {
+      color: #c7d2fe !important;
+      text-decoration: underline;
+    }
+
+    .legal-section {
+      margin-top: 26px;
+      padding: 20px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .legal-section h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .legal-section h3 {
+      font-size: 15px;
+      margin-top: 16px;
+      margin-bottom: 5px;
+      color: #e5e7eb;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .legal-section ul {
+      padding-left: 18px;
+      margin-bottom: 10px;
+    }
+
+    .legal-updated {
+      font-size: 11px;
+      color: #a5b4fc;
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 
@@ -489,6 +561,8 @@
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#how">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
         <a href="https://dashboard.cyvara.co/login" class="nav-dashboard">Client Dashboard Login</a>
         <a href="#contact" class="nav-cta">Book a free demo</a>
       </nav>
@@ -747,9 +821,19 @@
                 <textarea id="message" name="message" placeholder="Missed calls, quoting, booking, follow-up, etc." required></textarea>
               </div>
 
+              <div class="checkbox-row">
+                <input id="sms_opt_in" name="sms_opt_in" type="checkbox" value="Yes, I agree to receive SMS messages from Cyvara" />
+                <label for="sms_opt_in">
+                  By checking this box, you agree to receive SMS messages from Cyvara regarding your inquiry, services, appointments, follow-ups, and customer support.
+                  Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for support.
+                  Consent is not required to submit this form or purchase services. View our
+                  <a href="#privacy">Privacy Policy</a> and <a href="#terms">Terms of Service</a>.
+                </label>
+              </div>
+
               <p class="sms-consent">
-                By submitting this form, you agree to receive SMS messages from Cyvara regarding your inquiry.
-                Message frequency may vary. Reply STOP to opt out.
+                SMS messages may include appointment reminders, service updates, follow-up messages, and responses to your request.
+                Cyvara does not share SMS opt-in consent or phone numbers with third parties for marketing purposes.
               </p>
 
               <button type="submit" class="btn-submit">Submit demo request</button>
@@ -775,6 +859,101 @@
           </div>
         </div>
       </section>
+
+
+      <section id="privacy" class="section legal-section">
+        <h2>Privacy Policy</h2>
+        <p class="legal-updated">Last updated: May 4, 2026</p>
+
+        <p>
+          This Privacy Policy explains how Cyvara collects, uses, stores, and protects information submitted through this website and through our services.
+        </p>
+
+        <h3>Information We Collect</h3>
+        <p>
+          We may collect your name, email address, phone number, business name, business type, message details, and any other information you submit through our forms or communications.
+        </p>
+
+        <h3>How We Use Information</h3>
+        <p>
+          We use collected information to respond to inquiries, schedule demos, provide customer support, deliver services, improve our systems, follow up with leads, and communicate about appointments or service-related updates.
+        </p>
+
+        <h3>SMS Opt-In Details</h3>
+        <p>
+          If you choose to opt in to SMS messages, Cyvara may send text messages related to your inquiry, demo request, appointments, service updates, support, and follow-ups. Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for support.
+        </p>
+
+        <h3>No Sharing of SMS Opt-In Data</h3>
+        <p>
+          SMS opt-in consent and phone numbers collected for SMS purposes will not be shared, sold, rented, or disclosed to third parties or affiliates for marketing or promotional purposes.
+        </p>
+
+        <h3>Cookies and Tracking</h3>
+        <p>
+          We may use cookies, analytics tools, and similar tracking technologies to understand website activity, improve performance, and improve user experience.
+        </p>
+
+        <h3>Data Security</h3>
+        <p>
+          We use reasonable technical and administrative safeguards to protect your information. No website or system can guarantee complete security, but we take reasonable steps to reduce risk.
+        </p>
+
+        <h3>User Rights</h3>
+        <p>
+          You may request access to your information, ask us to update or correct it, request deletion where applicable, unsubscribe from email communications, or opt out of SMS by replying STOP.
+        </p>
+
+        <h3>Contact</h3>
+        <p>
+          For privacy questions or data requests, contact Cyvara at <a href="mailto:support@cyvara.co">support@cyvara.co</a>.
+        </p>
+      </section>
+
+      <section id="terms" class="section legal-section">
+        <h2>Terms of Service</h2>
+        <p class="legal-updated">Last updated: May 4, 2026</p>
+
+        <p>
+          By using this website or submitting a form, you agree to these Terms of Service and Cyvara's Privacy Policy.
+        </p>
+
+        <h3>Description of SMS Program</h3>
+        <p>
+          Cyvara may send SMS messages related to demo requests, appointment scheduling, reminders, service updates, customer support, lead follow-up, and responses to inquiries.
+        </p>
+
+        <h3>Opt-Out Instructions</h3>
+        <p>
+          You can opt out of SMS messages at any time by replying STOP. After opting out, you may receive one final confirmation message. For help, reply HELP or contact us at <a href="mailto:support@cyvara.co">support@cyvara.co</a>.
+        </p>
+
+        <h3>Message Frequency and Rates</h3>
+        <p>
+          Message frequency may vary based on your inquiry and service activity. Message & data rates may apply depending on your mobile carrier plan.
+        </p>
+
+        <h3>Carrier Liability Disclaimer</h3>
+        <p>
+          Mobile carriers are not liable for delayed or undelivered messages.
+        </p>
+
+        <h3>Age Restriction</h3>
+        <p>
+          You must be at least 18 years old to use this website, submit forms, or receive services from Cyvara.
+        </p>
+
+        <h3>Privacy Policy</h3>
+        <p>
+          Our Privacy Policy explains how we collect, use, and protect information. You can review it above in the <a href="#privacy">Privacy Policy</a> section.
+        </p>
+
+        <h3>Support Contact</h3>
+        <p>
+          For support, contact Cyvara at <a href="mailto:support@cyvara.co">support@cyvara.co</a>.
+        </p>
+      </section>
+
     </main>
 
     <div class="client-login">
@@ -786,7 +965,7 @@
     </div>
 
     <footer>
-      © <span>Cyvara</span> · Intelligent automation for modern local businesses.
+      © <span>Cyvara</span> · Intelligent automation for modern local businesses. · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a>
     </footer>
   </div>
 </body>
