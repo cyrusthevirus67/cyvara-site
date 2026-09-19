@@ -140,4 +140,17 @@
         .then(function () { btn.disabled = false; btn.textContent = label; });
     });
   });
+  /* ---- Pricing: monthly / yearly toggle ---- */
+  document.querySelectorAll(".plan[data-billing]").forEach(function (plan) {
+    plan.querySelectorAll("[data-billing-set]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        plan.setAttribute("data-billing", b.getAttribute("data-billing-set"));
+        plan.querySelectorAll("[data-billing-set]").forEach(function (o) {
+          var on = o === b;
+          o.classList.toggle("on", on);
+          o.setAttribute("aria-pressed", String(on));
+        });
+      });
+    });
+  });
 })();
