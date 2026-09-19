@@ -2,828 +2,400 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Cyvara | AI software for a better way forward</title>
-
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="favicon.svg">
-
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cyvara | AI software for a better way forward</title>
   <meta name="description" content="Cyvara builds AI products that help people make better decisions, do more, and navigate complexity. Our first product is Waypoint, an AI life and career navigator." />
-  <meta name="theme-color" content="#070815" />
+  <meta name="theme-color" content="#05060d" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cyvara" />
   <meta property="og:title" content="Cyvara | AI software for a better way forward" />
   <meta property="og:description" content="We build AI software for the problems that matter. Meet Waypoint, our AI life and career navigator." />
   <meta property="og:url" content="https://cyvara.co/" />
-
-  <style>
-    html { scroll-behavior: smooth; }
-
-    :root {
-      --bg: #070815;
-      --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.12);
-      --violet: #a855f7;
-      --green: #22c55e;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --soft: #e5e7eb;
-      --lilac: #c7d2fe;
-      --border: rgba(31, 41, 55, 0.9);
-      --grad: linear-gradient(135deg, #4f46e5, #22c55e);
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --radius-pill: 999px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 52%);
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 2px solid var(--lilac);
-      outline-offset: 3px;
-    }
-
-    .page { max-width: 1200px; margin: 0 auto; padding: 24px 18px 80px; }
-
-    /* ---------- Header ---------- */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 10px 12px 22px;
-    }
-
-    .logo { display: flex; align-items: center; gap: 10px; }
-
-    .logo-svg {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      filter: drop-shadow(0 0 14px rgba(79, 70, 229, 0.65));
-    }
-
-    .logo-text-main { font-weight: 700; letter-spacing: 0.04em; font-size: 18px; }
-    .logo-text-sub { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; }
-
-    nav { display: flex; align-items: center; gap: 22px; font-size: 14px; color: var(--muted); }
-    nav a { padding: 4px 0; position: relative; transition: color 0.15s ease-out; }
-    nav a:hover { color: var(--text); }
-
-    nav a.nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--grad);
-      transition: width 0.18s ease-out;
-    }
-
-    nav a.nav-link:hover::after { width: 100%; }
-
-    .nav-cta {
-      padding: 8px 16px !important;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: white !important;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 12px 30px rgba(79, 70, 229, 0.4);
-      transition: transform 0.15s ease-out, filter 0.15s ease-out;
-    }
-
-    .nav-cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
-
-    @media (max-width: 880px) {
-      .nav-link, .nav-login { display: none; }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 40px;
-      padding: 34px 12px 30px;
-      align-items: center;
-    }
-
-    @media (max-width: 880px) {
-      .hero { grid-template-columns: minmax(0, 1fr); padding-top: 18px; }
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
-    }
-
-    h1 {
-      font-size: clamp(34px, 5.6vw, 54px);
-      line-height: 1.04;
-      letter-spacing: -0.045em;
-      margin-bottom: 16px;
-    }
-
-    .highlight {
-      background: linear-gradient(120deg, #4f46e5, #a855f7, #22c55e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 26px;
-    }
-
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: var(--radius-pill);
-      background: var(--grad);
-      color: white;
-      font-weight: 600;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 14px 35px rgba(22, 163, 74, 0.35);
-      transition: transform 0.15s ease-out, filter 0.15s ease-out;
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
-
-    .btn-ghost {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.15s ease-out;
-    }
-
-    .btn-ghost:hover { background: rgba(148, 163, 184, 0.12); }
-
-    .eco-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #111827, #020617);
-      box-shadow: var(--shadow-soft);
-      padding: 18px 18px 12px;
-    }
-
-    .eco-card svg { display: block; width: 100%; height: auto; }
-    .eco-caption { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px; letter-spacing: 0.08em; text-transform: uppercase; }
-
-    /* ---------- Sections ---------- */
-    .section { padding: 46px 12px 0; }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      gap: 16px;
-    }
-
-    @media (max-width: 720px) {
-      .section-header { flex-direction: column; gap: 6px; }
-    }
-
-    .section-title { font-size: 24px; letter-spacing: -0.03em; }
-    .section-subtitle { font-size: 14px; color: var(--muted); max-width: 460px; }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 720px) {
-      .grid-3 { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .card {
-      background: #020617;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      padding: 16px 17px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    .card-label {
-      font-size: 11px;
-      color: #a5b4fc;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .card-title { font-size: 16px; margin-bottom: 7px; font-weight: 600; }
-    .card-body { font-size: 14px; color: var(--muted); }
-
-    /* Thesis */
-    .thesis {
-      text-align: center;
-      padding: 30px 18px 34px;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.16), #020617 70%);
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 14px;
-    }
-
-    .thesis-label { font-size: 11px; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px; }
-
-    .thesis-quote {
-      font-size: clamp(22px, 3.6vw, 32px);
-      line-height: 1.22;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    /* Products */
-    .product {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 26px;
-      padding: 26px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(129, 140, 248, 0.6);
-      background: radial-gradient(circle at top left, #16183a, #020617 65%);
-      box-shadow: 0 14px 40px rgba(79, 70, 229, 0.3);
-      align-items: center;
-    }
-
-    @media (max-width: 880px) {
-      .product { grid-template-columns: minmax(0, 1fr); padding: 20px; }
-    }
-
-    .product-tag {
-      display: inline-block;
-      font-size: 11px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--lilac);
-      margin-bottom: 10px;
-    }
-
-    .product-name { font-size: 34px; letter-spacing: -0.04em; line-height: 1.1; }
-    .product-tagline { font-size: 18px; font-weight: 600; margin: 4px 0 12px; }
-    .product-body { font-size: 14px; color: var(--muted); max-width: 470px; margin-bottom: 20px; }
-
-    .journey { list-style: none; counter-reset: step; display: grid; gap: 8px; }
-
-    .journey li {
-      counter-increment: step;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      background: rgba(15, 23, 42, 0.7);
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .journey li::before {
-      content: counter(step);
-      flex: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: var(--grad);
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-soon {
-      margin-top: 14px;
-      padding: 20px 22px;
-      border-radius: var(--radius-lg);
-      border: 1px dashed rgba(148, 163, 184, 0.4);
-      color: var(--muted);
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .product-soon strong { color: var(--soft); font-weight: 600; }
-
-    /* Vision */
-    .vision {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 26px;
-      align-items: center;
-      padding: 26px;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #111827, #020617);
-      box-shadow: var(--shadow-soft);
-    }
-
-    @media (max-width: 880px) {
-      .vision { grid-template-columns: minmax(0, 1fr); padding: 20px; }
-    }
-
-    .vision h2 { font-size: 24px; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 10px; }
-    .vision p { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-
-    .chip {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.28);
-      background: rgba(15, 23, 42, 0.8);
-      font-size: 12px;
-      color: var(--soft);
-    }
-
-    .context-stack { display: grid; gap: 8px; }
-
-    .context-row {
-      padding: 11px 15px;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      background: rgba(15, 23, 42, 0.7);
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .context-row strong { display: block; color: var(--text); font-size: 13px; margin-bottom: 1px; }
-
-    /* Contact */
-    .contact {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
-      .contact { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .contact-card {
-      background: radial-gradient(circle at top left, #111827, #020617);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      padding: 18px 18px 16px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .contact-card h3 { font-size: 16px; margin-bottom: 4px; }
-    .contact-card p { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
-
-    form { display: grid; gap: 8px; margin-top: 6px; }
-
-    label { font-size: 12px; color: var(--muted); }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-      color: var(--text);
-      font-size: 13px;
-      font-family: inherit;
-      outline: none;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: #4f46e5;
-      box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.5);
-    }
-
-    textarea { min-height: 80px; resize: vertical; }
-
-    .sms-consent {
-      color: white;
-      font-size: 11px;
-      line-height: 1.45;
-      margin-top: 4px;
-      opacity: 0.9;
-    }
-
-    .btn-submit {
-      margin-top: 6px;
-      padding: 10px 20px;
-      border-radius: var(--radius-pill);
-      border: none;
-      background: var(--grad);
-      color: white;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .mini-faq { font-size: 13px; color: var(--muted); }
-    .mini-faq p { margin-bottom: 4px; }
-    .mini-faq strong { color: var(--soft); }
-
-    .checkbox-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      margin-top: 4px;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      background: rgba(15, 23, 42, 0.7);
-    }
-
-    .checkbox-row input {
-      width: auto;
-      margin-top: 3px;
-      accent-color: #4f46e5;
-    }
-
-    .checkbox-row label {
-      color: var(--soft);
-      font-size: 11px;
-      line-height: 1.45;
-    }
-
-    .sms-consent a,
-    .checkbox-row a,
-    .legal-section a,
-    footer a {
-      color: var(--lilac);
-      text-decoration: underline;
-    }
-
-    /* ---------- Legal ---------- */
-    .legal-section {
-      margin-top: 26px;
-      padding: 20px;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top left, #111827, #020617);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .legal-section h2 {
-      font-size: 22px;
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
-    }
-
-    .legal-section h3 {
-      font-size: 15px;
-      margin-top: 16px;
-      margin-bottom: 5px;
-      color: var(--soft);
-    }
-
-    .legal-section p,
-    .legal-section li {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .legal-section ul {
-      padding-left: 18px;
-      margin-bottom: 10px;
-    }
-
-    .legal-updated {
-      font-size: 11px;
-      color: #a5b4fc;
-      margin-bottom: 12px;
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 11px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 14px;
-      text-align: center;
-    }
-
-    footer span { color: #9f9ffb; }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; }
-    }
-  </style>
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
-  <div class="page">
-    <header>
-      <a href="#top" class="logo" aria-label="Cyvara home">
-        <div class="logo-svg">
-          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="cyvGrad" x1="18" y1="18" x2="82" y2="82" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#4f46e5"/>
-                <stop offset="1" stop-color="#22c55e"/>
-              </linearGradient>
-              <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="2.2" result="blur"/>
-                <feMerge>
-                  <feMergeNode in="blur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
+  <a class="skip" href="#main">Skip to content</a>
 
-            <circle cx="50" cy="50" r="44" stroke="url(#cyvGrad)" stroke-width="6" opacity="0.95"/>
+  <!-- Shared icons & logo -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="cyvGrad" x1="18" y1="18" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#4f46e5"/><stop offset="1" stop-color="#22c55e"/>
+      </linearGradient>
+      <linearGradient id="wpGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#818cf8"/><stop offset="1" stop-color="#34d399"/>
+      </linearGradient>
+      <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2.2" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <symbol id="logo" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="44" stroke="url(#cyvGrad)" stroke-width="6" opacity="0.95"/>
+      <path d="M66 33C61 28 55 25 47 25C34 25 24 35 24 50C24 65 34 75 47 75C55 75 61 72 66 67" stroke="url(#cyvGrad)" stroke-width="10" stroke-linecap="round" fill="none" filter="url(#softGlow)"/>
+      <circle cx="70" cy="34" r="3.8" fill="#4f46e5"/>
+      <circle cx="72" cy="66" r="3.8" fill="#22c55e"/>
+      <circle cx="30" cy="50" r="3.3" fill="#a855f7"/>
+      <path d="M67 35 L76 28" stroke="#4f46e5" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+      <path d="M67 65 L76 72" stroke="#22c55e" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    </symbol>
+    <symbol id="waypoint" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#wpGrad)" stroke-width="5" opacity="0.9"/>
+      <path d="M50 20 L58 42 L80 50 L58 58 L50 80 L42 58 L20 50 L42 42 Z" fill="url(#wpGrad)"/>
+    </symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  </svg>
 
-            <path
-              d="M66 33
-                 C61 28 55 25 47 25
-                 C34 25 24 35 24 50
-                 C24 65 34 75 47 75
-                 C55 75 61 72 66 67"
-              stroke="url(#cyvGrad)"
-              stroke-width="10"
-              stroke-linecap="round"
-              fill="none"
-              filter="url(#softGlow)"
-            />
-
-            <circle cx="70" cy="34" r="3.8" fill="#4f46e5"/>
-            <circle cx="72" cy="66" r="3.8" fill="#22c55e"/>
-            <circle cx="30" cy="50" r="3.3" fill="#a855f7"/>
-
-            <path d="M67 35 L76 28" stroke="#4f46e5" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
-            <path d="M67 65 L76 72" stroke="#22c55e" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
-          </svg>
-        </div>
-
-        <div>
-          <div class="logo-text-main">Cyvara</div>
-          <div class="logo-text-sub">AI Software</div>
-        </div>
+  <!-- Nav -->
+  <div class="nav-shell">
+    <header class="nav">
+      <a href="#top" class="brand" aria-label="Cyvara home">
+        <svg aria-hidden="true"><use href="#logo"/></svg>
+        Cyvara
       </a>
 
-      <nav aria-label="Primary">
-        <a href="#products" class="nav-link">Products</a>
-        <a href="#approach" class="nav-link">Approach</a>
-        <a href="#vision" class="nav-link">Vision</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="https://app.cyvara.co/?logout=true" class="nav-login">Client login</a>
-        <a href="#products" class="nav-cta">Explore Waypoint</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#products">Products</a>
+        <a href="#approach">Approach</a>
+        <a href="#vision">Vision</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <div class="nav-right">
+        <a class="nav-login" href="https://app.cyvara.co/?logout=true">Client login</a>
+        <a class="btn btn-primary btn-sm" href="https://waypoint.cyvara.co">Meet Waypoint <svg class="i" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="i i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i i-x" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
     </header>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#products">Products</a>
+      <a href="#approach">Approach</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
+      <a href="https://app.cyvara.co/?logout=true">Client login</a>
+      <a class="btn btn-primary" href="https://waypoint.cyvara.co">Meet Waypoint <svg class="i" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    </div>
+  </div>
 
-    <main id="top">
-      <section class="hero">
-        <div>
-          <div class="pill">
-            <div class="pill-dot"></div>
-            <span>AI software for a better way forward</span>
-          </div>
+  <main id="main">
 
-          <h1>
-            We build AI software for
-            <span class="highlight">the problems that matter.</span>
-          </h1>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+        <div class="gridlines"></div>
+      </div>
 
-          <p class="hero-subtitle">
+      <div class="wrap">
+        <div class="hero-inner">
+          <a class="announce reveal" href="https://waypoint.cyvara.co">
+            <span class="dot"></span>
+            <span><b>Introducing Waypoint</b> — our AI life &amp; career navigator</span>
+            <span class="go"><svg class="i" aria-hidden="true"><use href="#i-arrow-r"/></svg></span>
+          </a>
+
+          <h1 class="reveal" style="--d:.08s">AI software for a <span class="serif grad">better way forward.</span></h1>
+
+          <p class="lede reveal" style="--d:.16s">
             Cyvara builds AI products that help people make better decisions, do more, and navigate complexity.
           </p>
 
-          <div class="hero-actions">
-            <a href="#products" class="btn-primary">Explore Waypoint →</a>
-            <a href="#approach" class="btn-ghost">Our approach</a>
+          <div class="hero-actions reveal" style="--d:.24s">
+            <a class="btn btn-primary" href="https://waypoint.cyvara.co">Meet Waypoint <svg class="i" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+            <a class="btn btn-ghost to-right" href="#approach">Our approach <svg class="i" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
           </div>
         </div>
 
-        <div class="eco-card" role="img" aria-label="Cyvara is the parent company. Waypoint is its first product. More products are coming.">
-          <svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="ecoGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#4f46e5"/>
-                <stop offset="1" stop-color="#22c55e"/>
-              </linearGradient>
-            </defs>
-
-            <path d="M180 64 V96 M62 96 H298 M62 96 V128 M180 96 V128 M298 96 V128"
-                  stroke="#4b5563" stroke-width="2" stroke-linecap="round" fill="none"/>
-
-            <rect x="110" y="16" width="140" height="48" rx="14" fill="url(#ecoGrad)"/>
-            <text x="180" y="45" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" letter-spacing="3"
-                  font-family="system-ui, -apple-system, sans-serif">CYVARA</text>
-
-            <rect x="10" y="128" width="104" height="104" rx="16" fill="#0b1024" stroke="url(#ecoGrad)" stroke-width="2"/>
-            <text x="62" y="172" text-anchor="middle" fill="#f9fafb" font-size="13" font-weight="700" letter-spacing="1.5"
-                  font-family="system-ui, -apple-system, sans-serif">WAYPOINT</text>
-            <text x="62" y="192" text-anchor="middle" fill="#9ca3af" font-size="10.5"
-                  font-family="system-ui, -apple-system, sans-serif">Life &amp; career</text>
-            <text x="62" y="206" text-anchor="middle" fill="#9ca3af" font-size="10.5"
-                  font-family="system-ui, -apple-system, sans-serif">navigator</text>
-
-            <rect x="128" y="128" width="104" height="104" rx="16" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 5"/>
-            <text x="180" y="176" text-anchor="middle" fill="#6b7280" font-size="24" font-family="system-ui, -apple-system, sans-serif">+</text>
-            <text x="180" y="200" text-anchor="middle" fill="#6b7280" font-size="10.5" font-family="system-ui, -apple-system, sans-serif">Next product</text>
-
-            <rect x="246" y="128" width="104" height="104" rx="16" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 5"/>
-            <text x="298" y="176" text-anchor="middle" fill="#6b7280" font-size="24" font-family="system-ui, -apple-system, sans-serif">+</text>
-            <text x="298" y="200" text-anchor="middle" fill="#6b7280" font-size="10.5" font-family="system-ui, -apple-system, sans-serif">Next product</text>
-          </svg>
-          <p class="eco-caption">One company · Many products</p>
-        </div>
-      </section>
-
-      <section id="approach" class="section">
-        <div class="thesis">
-          <p class="thesis-label">Our thesis</p>
-          <p class="thesis-quote">
-            AI should help people <span class="highlight">navigate complexity</span>, not just generate information.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-label">01</div>
-            <div class="card-title">Understands your context</div>
-            <p class="card-body">
-              Generic answers don't move anyone forward. Our products learn your goals, constraints, and situation first.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-label">02</div>
-            <div class="card-title">Helps you decide</div>
-            <p class="card-body">
-              We turn a sea of options into clear tradeoffs, so you can choose with confidence instead of guessing.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-label">03</div>
-            <div class="card-title">Gets you moving</div>
-            <p class="card-body">
-              Insight is only useful if it leads somewhere. Every product is built to help you take the next real step.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="products" class="section">
-        <div class="section-header">
-          <h2 class="section-title">Our products</h2>
-          <p class="section-subtitle">
-            One product at a time, each built to be genuinely useful before we build the next.
-          </p>
-        </div>
-
-        <div class="product">
-          <div>
-            <span class="product-tag">Product 01</span>
-            <h3 class="product-name">Waypoint</h3>
-            <p class="product-tagline">Find what's next.</p>
-            <p class="product-body">
-              An AI life and career navigator. Waypoint helps people understand themselves, explore careers,
-              and figure out what to do next.
-            </p>
-            <a href="#contact" class="btn-primary">Get early access →</a>
-          </div>
-
-          <ol class="journey" aria-label="How Waypoint works">
-            <li>Understand yourself</li>
-            <li>Explore possibilities</li>
-            <li>Test them in the real world</li>
-            <li>Make decisions</li>
-            <li>Move forward</li>
-          </ol>
-        </div>
-
-        <div class="product-soon">
-          <span><strong>More coming soon.</strong> Every Cyvara product is built around the same idea: AI that helps you take action.</span>
-        </div>
-      </section>
-
-      <section id="vision" class="section">
-        <div class="vision">
-          <div>
-            <h2>One company. Many products. <span class="highlight">One growing understanding of you.</span></h2>
-            <p>
-              Over time, Cyvara products are designed to work together. The goals, preferences, and context you choose to share
-              in one product can help you in the next, so you never have to start from scratch.
-            </p>
-            <div class="chips">
-              <span class="chip">Goals</span>
-              <span class="chip">Preferences</span>
-              <span class="chip">Projects</span>
-              <span class="chip">Decisions</span>
-              <span class="chip">Constraints</span>
+        <div class="stage reveal" style="--d:.3s">
+          <div class="window" role="img" aria-label="Illustrative preview of the Waypoint interface: a guided conversation that suggests career directions to test.">
+            <div class="window-bar" aria-hidden="true">
+              <i></i><i></i><i></i>
+              <span class="window-url">waypoint.cyvara.co</span>
             </div>
-            <p>
-              That's the difference between a collection of apps and an ecosystem.
+            <div class="window-body" aria-hidden="true">
+              <aside class="w-side">
+                <div class="w-brand"><svg><use href="#waypoint"/></svg> Waypoint</div>
+                <ul class="w-steps">
+                  <li class="done">Understand yourself</li>
+                  <li class="now">Explore possibilities</li>
+                  <li>Test in the real world</li>
+                  <li>Make decisions</li>
+                  <li>Move forward</li>
+                </ul>
+              </aside>
+
+              <div class="w-main">
+                <div class="msg">
+                  <span class="av"><svg><use href="#waypoint"/></svg></span>
+                  <div class="bub">You said you lose track of time building things for other people. What part pulls you in most — solving the problem, or seeing someone use it?</div>
+                </div>
+                <div class="msg me">
+                  <div class="bub">Honestly, watching someone use something I made.</div>
+                </div>
+                <div class="msg">
+                  <span class="av"><svg><use href="#waypoint"/></svg></span>
+                  <div class="bub">
+                    That's a strong signal. Here are three directions worth testing:
+                    <div class="opts">
+                      <div class="opt hl"><b>Product design</b><span>Try: redesign one flow you use daily</span></div>
+                      <div class="opt"><b>Developer relations</b><span>Try: write a short tutorial</span></div>
+                      <div class="opt"><b>Early-stage startups</b><span>Try: talk to two founders</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="msg"><span class="av"><svg><use href="#waypoint"/></svg></span><span class="typing"><i></i><i></i><i></i></span></div>
+                <div class="composer">Reply to Waypoint… <i><svg class="i"><use href="#i-send"/></svg></i></div>
+              </div>
+
+              <aside class="w-panel">
+                <div><h4>Strengths</h4><div class="tags"><span class="tag on">Empathy</span><span class="tag on">Systems thinking</span><span class="tag">Writing</span></div></div>
+                <div><h4>Values</h4><div class="tags"><span class="tag on">Impact</span><span class="tag on">Autonomy</span><span class="tag">Craft</span></div></div>
+                <div><h4>Constraints</h4><div class="tags"><span class="tag">Stay near family</span><span class="tag">Stable income</span></div></div>
+              </aside>
+            </div>
+          </div>
+          <p class="stage-note">Illustrative preview of Waypoint</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thesis -->
+    <section class="thesis sec" id="thesis" style="padding-top:clamp(60px,9vw,120px)">
+      <div class="wrap">
+        <p class="eyebrow">Our thesis</p>
+        <p class="thesis-text" data-words>AI should help people <span class="serif">navigate complexity</span>, not just generate information.</p>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="sec" id="products" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Products</p>
+          <h2 class="h2">One product at a time. <span class="serif grad">Each one earns the next.</span></h2>
+        </div>
+
+        <article class="card spot flagship reveal">
+          <div>
+            <div class="p-top">
+              <span class="p-mark"><svg aria-hidden="true"><use href="#waypoint"/></svg></span>
+              <span class="badge">Early access list open</span>
+            </div>
+            <h3 class="p-name">Waypoint</h3>
+            <p class="p-tag">Find what's next.</p>
+            <p class="p-body">
+              An AI life and career navigator. Waypoint helps people understand themselves, explore careers,
+              and figure out what to do next — with a real plan, not just an insight.
             </p>
+            <div class="p-actions">
+              <a class="btn btn-primary" href="https://waypoint.cyvara.co">Explore Waypoint <svg class="i" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+              <a class="btn btn-ghost" href="https://waypoint.cyvara.co/#access">Join early access</a>
+            </div>
           </div>
 
-          <div class="context-stack">
-            <div class="context-row"><strong>Waypoint</strong>Knows you're figuring out your career.</div>
-            <div class="context-row"><strong>A future Cyvara product</strong>Could know you're building a company.</div>
-            <div class="context-row"><strong>Another</strong>Could help you protect your runway while you do.</div>
+          <ol class="path" aria-label="How Waypoint works">
+            <li><b>01</b><span>Understand yourself<small>Strengths, interests, values, constraints.</small></span></li>
+            <li><b>02</b><span>Explore possibilities<small>Paths you'd never think to search for.</small></span></li>
+            <li><b>03</b><span>Test them in the real world<small>Small experiments before big commitments.</small></span></li>
+            <li><b>04</b><span>Make decisions<small>Tradeoffs made visible.</small></span></li>
+            <li><b>05</b><span>Move forward<small>A concrete next step.</small></span></li>
+          </ol>
+        </article>
+
+        <div class="soon-row">
+          <div class="card soon reveal" style="--d:.05s">
+            <span class="badge">Product 02</span>
+            <h3>Coming later</h3>
+            <p>We build one product at a time. The next one will earn its place.</p>
+            <div class="skel" aria-hidden="true"><i></i><i></i></div>
+          </div>
+          <div class="card soon reveal" style="--d:.12s">
+            <span class="badge">Product 03</span>
+            <h3>Coming later</h3>
+            <p>Different problem, same idea: AI that understands context and helps you act.</p>
+            <div class="skel" aria-hidden="true"><i></i><i></i></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="contact" class="section">
-        <div class="section-header">
-          <h2 class="section-title">Get in touch</h2>
-          <p class="section-subtitle">
-            Want early access to Waypoint, or have a question about what we're building? Send us a note.
-          </p>
+    <!-- Approach -->
+    <section class="sec" id="approach" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">Approach</p>
+          <h2 class="h2">Built to help you <span class="serif grad">move</span>, not just read.</h2>
+          <p class="lede">Every Cyvara product follows the same three principles, so what we ship actually changes what you do next.</p>
         </div>
 
+        <div class="bento">
+          <article class="card spot reveal" style="--d:.04s">
+            <div class="viz" data-observe>
+              <div class="cloud" aria-hidden="true">
+                <span class="tag on">Goals</span><span class="tag">Constraints</span><span class="tag on">Values</span>
+                <span class="tag">Strengths</span><span class="tag">Interests</span><span class="tag on">History</span><span class="tag">Preferences</span>
+              </div>
+            </div>
+            <div class="num">01</div>
+            <h3>Understands your context</h3>
+            <p>Generic answers don't move anyone forward. Our products learn your goals, constraints, and situation first.</p>
+          </article>
+
+          <article class="card spot reveal" style="--d:.12s">
+            <div class="viz" data-observe>
+              <div class="bars" aria-hidden="true">
+                <div class="bar-row" style="--w:88%"><div><span>Option A</span><span>Strong fit</span></div><i></i></div>
+                <div class="bar-row" style="--w:62%"><div><span>Option B</span><span>Good fit</span></div><i></i></div>
+                <div class="bar-row" style="--w:38%"><div><span>Option C</span><span>Worth a test</span></div><i></i></div>
+              </div>
+            </div>
+            <div class="num">02</div>
+            <h3>Helps you decide</h3>
+            <p>We turn a sea of options into clear tradeoffs, so you can choose with confidence instead of guessing.</p>
+          </article>
+
+          <article class="card spot reveal" style="--d:.2s">
+            <div class="viz" data-observe>
+              <div class="todo" aria-hidden="true">
+                <div><b><svg class="i"><use href="#i-check"/></svg></b>Talk to someone in the role</div>
+                <div><b><svg class="i"><use href="#i-check"/></svg></b>Build one small project</div>
+                <div><b></b>Decide by Friday</div>
+              </div>
+            </div>
+            <div class="num">03</div>
+            <h3>Gets you moving</h3>
+            <p>Insight is only useful if it leads somewhere. Every product is built to help you take the next real step.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="sec" id="vision" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="eyebrow">Where we're headed</p>
+          <h2 class="h2">One company. Many products.<br /><span class="serif grad">One growing understanding of you.</span></h2>
+          <p class="lede">Over time, Cyvara products are designed to work together — so the context you choose to share in one can help you in the next. That's the difference between a collection of apps and an ecosystem.</p>
+        </div>
+
+        <div class="vision-stack reveal">
+          <div class="v-products">
+            <div class="card v-card live spot">
+              <span class="kicker">First product · Personal direction</span>
+              <h3>Waypoint</h3>
+              <p>Knows you're figuring out your career.</p>
+            </div>
+            <div class="card v-card later">
+              <span class="kicker">Future · Business</span>
+              <h3>A business product</h3>
+              <p>Could know you're starting a company.</p>
+            </div>
+            <div class="card v-card later">
+              <span class="kicker">Future · Finance</span>
+              <h3>A finance product</h3>
+              <p>Could help you protect your runway while you do.</p>
+            </div>
+          </div>
+
+          <div class="v-links" aria-hidden="true"><span></span><span></span><span></span></div>
+
+          <div class="card v-core spot">
+            <span class="kicker eyebrow" style="justify-content:center">Cyvara Intelligence</span>
+            <h3>Your context, carried forward.</h3>
+            <p>A persistent understanding of you that follows you across products — always with your permission.</p>
+            <div class="tags">
+              <span class="tag on">Goals</span><span class="tag on">Preferences</span><span class="tag on">History</span>
+              <span class="tag on">Habits</span><span class="tag on">Projects</span><span class="tag on">Decisions</span><span class="tag on">Constraints</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap">
+        <div class="cta-panel reveal">
+          <h2>Ready to find <span class="serif grad">what's next?</span></h2>
+          <p>Waypoint is our first product. Join the early access list and be first to try it.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://waypoint.cyvara.co/#access">Join the early access list <svg class="i" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+            <a class="btn btn-ghost" href="https://waypoint.cyvara.co">Explore Waypoint</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="sec" id="contact" style="padding-top:0">
+      <div class="wrap">
         <div class="contact">
-          <div class="contact-card">
-            <h3>Say hello</h3>
-            <p>
-              We read every message and reply personally.
-            </p>
+          <div class="contact-copy reveal">
+            <p class="eyebrow">Contact</p>
+            <h2 class="h2">Get in <span class="serif grad">touch.</span></h2>
+            <p class="lede">Want early access to Waypoint, or have a question about what we're building? Send us a note — we read every message.</p>
 
-            <form action="https://formspree.io/f/mzznqkae" method="POST">
+            <div class="faq">
+              <div><strong>What is Cyvara?</strong><p>An AI software company. We build products that help people make better decisions and navigate complexity.</p></div>
+              <div><strong>Do you still build custom AI systems for businesses?</strong><p>Yes. Choose “Custom AI systems for my business” in the form and we'll be in touch. Existing clients can <a href="https://app.cyvara.co/?logout=true">sign in here</a>.</p></div>
+            </div>
+          </div>
+
+          <div class="card form-card reveal" style="--d:.1s">
+            <form action="https://formspree.io/f/mzznqkae" method="POST" data-ajax>
               <input type="hidden" name="_subject" value="New Cyvara Inquiry" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_redirect" value="https://cyvara.co/#contact" />
 
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Jane Smith" required />
+              <div class="row2">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+                </div>
               </div>
 
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <div class="row2">
+                <div class="field">
+                  <label for="phone">Phone (optional)</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555" />
+                </div>
+                <div class="field">
+                  <label for="interest">I'm interested in</label>
+                  <select id="interest" name="interest" required>
+                    <option value="">Choose one</option>
+                    <option>Early access to Waypoint</option>
+                    <option>Custom AI systems for my business</option>
+                    <option>Partnerships or press</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
               </div>
 
-              <div>
-                <label for="phone">Phone (optional)</label>
-                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
-              </div>
-
-              <div>
-                <label for="interest">I'm interested in</label>
-                <select id="interest" name="interest" required>
-                  <option value="">Choose one</option>
-                  <option>Early access to Waypoint</option>
-                  <option>Custom AI systems for my business</option>
-                  <option>Partnerships or press</option>
-                  <option>Something else</option>
-                </select>
-              </div>
-
-              <div>
+              <div class="field">
                 <label for="message">Message</label>
                 <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for." required></textarea>
               </div>
@@ -843,30 +415,19 @@
                 Cyvara does not share SMS opt-in consent or phone numbers with third parties for marketing purposes.
               </p>
 
-              <button type="submit" class="btn-submit">Send message</button>
+              <button type="submit" class="btn btn-primary">Send message</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
-
-          <div class="mini-faq">
-            <p><strong>What is Cyvara?</strong></p>
-            <p>
-              An AI software company. We build products that help people make better decisions and navigate complexity.
-            </p>
-
-            <p style="margin-top:8px;"><strong>What is Waypoint?</strong></p>
-            <p>
-              Our first product: an AI life and career navigator that helps you understand yourself, explore careers, and figure out what's next.
-            </p>
-
-            <p style="margin-top:8px;"><strong>Do you still build custom AI systems for businesses?</strong></p>
-            <p>
-              Yes. Choose "Custom AI systems for my business" in the form and we'll be in touch. Existing clients can use the client login above.
-            </p>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-
+    <!-- Legal -->
+    <section class="legal" aria-label="Legal">
+      <div class="wrap">
+        <p class="eyebrow">Legal</p>
+        <div class="legal-grid">
       <section id="privacy" class="section legal-section">
         <h2>Privacy Policy</h2>
         <p class="legal-updated">Last updated: May 4, 2026</p>
@@ -960,12 +521,51 @@
         </p>
       </section>
 
+        </div>
+      </div>
+    </section>
+  </main>
 
-    </main>
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="#top" class="brand"><svg aria-hidden="true"><use href="#logo"/></svg> Cyvara</a>
+          <p class="tagline">AI software for a better way forward.</p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="https://waypoint.cyvara.co">Waypoint</a></li>
+            <li><a href="https://waypoint.cyvara.co/#access">Early access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal &amp; access</h4>
+          <ul>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="https://app.cyvara.co/?logout=true">Client login</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <footer>
-      © 2026 <span>Cyvara</span> · AI software for a better way forward. · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a> · <a href="https://app.cyvara.co/?logout=true">Client login</a>
-    </footer>
-  </div>
+      <div class="foot-bottom">
+        <span>© 2026 Cyvara. All rights reserved.</span>
+        <span>support@cyvara.co</span>
+      </div>
+    </div>
+    <div class="wordmark" aria-hidden="true">Cyvara</div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
 </body>
 </html>
