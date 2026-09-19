@@ -2,29 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Cyvara | AI Automation for Local Businesses</title>
+  <title>Cyvara | AI software for a better way forward</title>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon.svg">
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cyvara builds custom AI systems for local businesses..." />
+  <meta name="description" content="Cyvara builds AI products that help people make better decisions, do more, and navigate complexity. Our first product is Waypoint, an AI life and career navigator." />
+  <meta name="theme-color" content="#070815" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cyvara" />
+  <meta property="og:title" content="Cyvara | AI software for a better way forward" />
+  <meta property="og:description" content="We build AI software for the problems that matter. Meet Waypoint, our AI life and career navigator." />
+  <meta property="og:url" content="https://cyvara.co/" />
 
   <style>
     html { scroll-behavior: smooth; }
 
     :root {
       --bg: #070815;
-      --bg-secondary: #0f1022;
       --accent: #4f46e5;
       --accent-soft: rgba(79, 70, 229, 0.12);
-      --accent-strong: rgba(79, 70, 229, 0.2);
+      --violet: #a855f7;
+      --green: #22c55e;
       --text: #f9fafb;
       --muted: #9ca3af;
-      --card: #111827;
-      --border: #1f2933;
-      --danger: #ef4444;
-      --success: #22c55e;
+      --soft: #e5e7eb;
+      --lilac: #c7d2fe;
+      --border: rgba(31, 41, 55, 0.9);
+      --grad: linear-gradient(135deg, #4f46e5, #22c55e);
       --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
       --radius-lg: 18px;
       --radius-xl: 26px;
@@ -34,20 +41,23 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text","Inter", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 52%);
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: white !important;
-      text-decoration: none;
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--lilac);
+      outline-offset: 3px;
     }
 
     .page { max-width: 1200px; margin: 0 auto; padding: 24px 18px 80px; }
 
+    /* ---------- Header ---------- */
     header {
       display: flex;
       align-items: center;
@@ -70,10 +80,11 @@
     .logo-text-main { font-weight: 700; letter-spacing: 0.04em; font-size: 18px; }
     .logo-text-sub { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; }
 
-    nav { display: flex; align-items: center; gap: 18px; font-size: 14px; color: var(--muted); }
-    nav a { padding: 4px 0; position: relative; }
+    nav { display: flex; align-items: center; gap: 22px; font-size: 14px; color: var(--muted); }
+    nav a { padding: 4px 0; position: relative; transition: color 0.15s ease-out; }
+    nav a:hover { color: var(--text); }
 
-    nav a::after {
+    nav a.nav-link::after {
       content: "";
       position: absolute;
       left: 0;
@@ -81,129 +92,143 @@
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #4f46e5, #22c55e);
+      background: var(--grad);
       transition: width 0.18s ease-out;
     }
 
-    nav a:hover::after { width: 100%; }
+    nav a.nav-link:hover::after { width: 100%; }
 
     .nav-cta {
-      padding: 8px 16px;
+      padding: 8px 16px !important;
       border-radius: var(--radius-pill);
       background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: white;
+      color: white !important;
       font-size: 13px;
       font-weight: 600;
       box-shadow: 0 12px 30px rgba(79, 70, 229, 0.4);
-    }
-
-    .nav-dashboard {
-      padding: 9px 18px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
       transition: transform 0.15s ease-out, filter 0.15s ease-out;
     }
 
-    .nav-dashboard:hover,
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
+    .nav-cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+    @media (max-width: 880px) {
+      .nav-link, .nav-login { display: none; }
     }
 
+    /* ---------- Hero ---------- */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 32px;
-      padding: 26px 12px 40px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      padding: 34px 12px 30px;
       align-items: center;
     }
 
     @media (max-width: 880px) {
-      .hero { grid-template-columns: minmax(0, 1fr); }
-      nav { display: none; }
-      header { justify-content: center; }
+      .hero { grid-template-columns: minmax(0, 1fr); padding-top: 18px; }
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 11px;
+      padding: 5px 12px;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(148, 163, 184, 0.25);
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .pill-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--success);
+      background: var(--green);
       box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
     }
 
     h1 {
-      font-size: clamp(32px, 5vw, 42px);
-      line-height: 1.06;
-      letter-spacing: -0.04em;
-      margin-bottom: 10px;
+      font-size: clamp(34px, 5.6vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      margin-bottom: 16px;
     }
 
-    h1 span.highlight {
+    .highlight {
       background: linear-gradient(120deg, #4f46e5, #a855f7, #22c55e);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 15px;
+      font-size: 17px;
       color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 20px;
+      max-width: 520px;
+      margin-bottom: 26px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
     .btn-primary {
-      padding: 11px 22px;
+      display: inline-block;
+      padding: 12px 24px;
       border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      background: var(--grad);
       color: white;
       font-weight: 600;
       font-size: 14px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 14px 35px rgba(22, 163, 74, 0.45);
+      box-shadow: 0 14px 35px rgba(22, 163, 74, 0.35);
+      transition: transform 0.15s ease-out, filter 0.15s ease-out;
     }
 
-    .hero-footnote { font-size: 12px; color: var(--muted); }
-    .hero-footnote span { color: #a5b4fc; font-weight: 500; }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
 
-    .section { padding: 26px 12px 0; }
+    .btn-ghost {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.15s ease-out;
+    }
+
+    .btn-ghost:hover { background: rgba(148, 163, 184, 0.12); }
+
+    .eco-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 12px;
+    }
+
+    .eco-card svg { display: block; width: 100%; height: auto; }
+    .eco-caption { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ---------- Sections ---------- */
+    .section { padding: 46px 12px 0; }
 
     .section-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 16px;
-      gap: 10px;
+      margin-bottom: 18px;
+      gap: 16px;
     }
 
-    .section-title { font-size: 20px; letter-spacing: -0.03em; }
-    .section-subtitle { font-size: 13px; color: var(--muted); max-width: 420px; }
+    @media (max-width: 720px) {
+      .section-header { flex-direction: column; gap: 6px; }
+    }
+
+    .section-title { font-size: 24px; letter-spacing: -0.03em; }
+    .section-subtitle { font-size: 14px; color: var(--muted); max-width: 460px; }
 
     .grid-3 {
       display: grid;
@@ -211,111 +236,173 @@
       gap: 14px;
     }
 
-    @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
     @media (max-width: 720px) {
       .grid-3 { grid-template-columns: minmax(0, 1fr); }
     }
 
     .card {
-      background: linear-gradient(145deg, #020617, #020617 60%, #020617);
+      background: #020617;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 12px 13px;
+      border: 1px solid var(--border);
+      padding: 16px 17px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
     .card-label {
       font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 2px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .card-title { font-size: 15px; margin-bottom: 7px; font-weight: 600; }
-    .card-body { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-
-    .card-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-size: 12px;
-      color: #e5e7eb;
-    }
-
-    .card-list li {
-      padding-left: 16px;
-      position: relative;
-      margin-bottom: 6px;
-    }
-
-    .card-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #4f46e5;
-    }
-
-    .pricing-tag { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
-    .pricing-tag span { font-size: 11px; color: var(--muted); font-weight: 400; }
-
-    .price { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-    .price span { font-size: 13px; font-weight: 400; color: var(--muted); }
-
-    .badge-popular {
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #c7d2fe;
-      display: inline-block;
-      margin-bottom: 6px;
-    }
-
-    .pricing-cta {
-      margin-top: 10px;
-      font-size: 12px;
-      padding: 7px 11px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .pricing-cta.primary {
-      border: none;
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
-      color: white;
-      box-shadow: 0 10px 32px rgba(22, 101, 52, 0.55);
-    }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .how-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 720px) {
-      .how-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .step-number {
-      font-size: 11px;
       color: #a5b4fc;
       margin-bottom: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
     }
 
+    .card-title { font-size: 16px; margin-bottom: 7px; font-weight: 600; }
+    .card-body { font-size: 14px; color: var(--muted); }
+
+    /* Thesis */
+    .thesis {
+      text-align: center;
+      padding: 30px 18px 34px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.16), #020617 70%);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 14px;
+    }
+
+    .thesis-label { font-size: 11px; color: #a5b4fc; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px; }
+
+    .thesis-quote {
+      font-size: clamp(22px, 3.6vw, 32px);
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Products */
+    .product {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 26px;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(129, 140, 248, 0.6);
+      background: radial-gradient(circle at top left, #16183a, #020617 65%);
+      box-shadow: 0 14px 40px rgba(79, 70, 229, 0.3);
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .product { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+    }
+
+    .product-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--lilac);
+      margin-bottom: 10px;
+    }
+
+    .product-name { font-size: 34px; letter-spacing: -0.04em; line-height: 1.1; }
+    .product-tagline { font-size: 18px; font-weight: 600; margin: 4px 0 12px; }
+    .product-body { font-size: 14px; color: var(--muted); max-width: 470px; margin-bottom: 20px; }
+
+    .journey { list-style: none; counter-reset: step; display: grid; gap: 8px; }
+
+    .journey li {
+      counter-increment: step;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .journey li::before {
+      content: counter(step);
+      flex: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--grad);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-soon {
+      margin-top: 14px;
+      padding: 20px 22px;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .product-soon strong { color: var(--soft); font-weight: 600; }
+
+    /* Vision */
+    .vision {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, #111827, #020617);
+      box-shadow: var(--shadow-soft);
+    }
+
+    @media (max-width: 880px) {
+      .vision { grid-template-columns: minmax(0, 1fr); padding: 20px; }
+    }
+
+    .vision h2 { font-size: 24px; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 10px; }
+    .vision p { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+
+    .chip {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 12px;
+      color: var(--soft);
+    }
+
+    .context-stack { display: grid; gap: 8px; }
+
+    .context-row {
+      padding: 11px 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .context-row strong { display: block; color: var(--text); font-size: 13px; margin-bottom: 1px; }
+
+    /* Contact */
     .contact {
-      margin-top: 22px;
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap: 18px;
@@ -329,8 +416,8 @@
     .contact-card {
       background: radial-gradient(circle at top left, #111827, #020617);
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
       box-shadow: var(--shadow-soft);
     }
 
@@ -349,6 +436,7 @@
       background: rgba(15, 23, 42, 0.95);
       color: var(--text);
       font-size: 13px;
+      font-family: inherit;
       outline: none;
     }
 
@@ -369,70 +457,19 @@
 
     .btn-submit {
       margin-top: 6px;
-      padding: 9px 18px;
+      padding: 10px 20px;
       border-radius: var(--radius-pill);
       border: none;
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      background: var(--grad);
       color: white;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
     }
 
-    .mini-faq { font-size: 12px; color: var(--muted); }
+    .mini-faq { font-size: 13px; color: var(--muted); }
     .mini-faq p { margin-bottom: 4px; }
-
-    .client-login {
-      margin-top: 30px;
-      padding: 18px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: radial-gradient(circle at top left, #111827, #020617);
-      box-shadow: var(--shadow-soft);
-      text-align: center;
-    }
-
-    .client-login h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-
-    .client-login p {
-      margin: 0 0 12px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .dashboard-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 20px;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
-      color: white;
-      font-weight: 600;
-      font-size: 14px;
-      box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
-      transition: transform 0.15s ease-out, filter 0.15s ease-out;
-    }
-
-    .dashboard-cta:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 11px;
-      color: var(--muted);
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 14px;
-      text-align: center;
-    }
-
-    footer span { color: #9f9ffb; }
-
+    .mini-faq strong { color: var(--soft); }
 
     .checkbox-row {
       display: flex;
@@ -452,7 +489,7 @@
     }
 
     .checkbox-row label {
-      color: #e5e7eb;
+      color: var(--soft);
       font-size: 11px;
       line-height: 1.45;
     }
@@ -461,15 +498,16 @@
     .checkbox-row a,
     .legal-section a,
     footer a {
-      color: #c7d2fe !important;
+      color: var(--lilac);
       text-decoration: underline;
     }
 
+    /* ---------- Legal ---------- */
     .legal-section {
       margin-top: 26px;
       padding: 20px;
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(31, 41, 55, 0.9);
+      border: 1px solid var(--border);
       background: radial-gradient(circle at top left, #111827, #020617);
       box-shadow: var(--shadow-soft);
     }
@@ -484,7 +522,7 @@
       font-size: 15px;
       margin-top: 16px;
       margin-bottom: 5px;
-      color: #e5e7eb;
+      color: var(--soft);
     }
 
     .legal-section p,
@@ -504,15 +542,31 @@
       color: #a5b4fc;
       margin-bottom: 12px;
     }
+
+    footer {
+      margin-top: 30px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      text-align: center;
+    }
+
+    footer span { color: #9f9ffb; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
   </style>
 </head>
 
 <body>
   <div class="page">
     <header>
-      <div class="logo">
+      <a href="#top" class="logo" aria-label="Cyvara home">
         <div class="logo-svg">
-          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cyvara logo">
+          <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <linearGradient id="cyvGrad" x1="18" y1="18" x2="82" y2="82" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#4f46e5"/>
@@ -553,272 +607,225 @@
 
         <div>
           <div class="logo-text-main">Cyvara</div>
-          <div class="logo-text-sub">AI Automation Systems</div>
+          <div class="logo-text-sub">AI Software</div>
         </div>
-      </div>
+      </a>
 
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#how">How it works</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#terms">Terms</a>
-        <a href="https://app.cyvara.co/?logout=true" class="nav-dashboard">Client Dashboard Login</a>
-        <a href="#contact" class="nav-cta">Book a free demo</a>
+      <nav aria-label="Primary">
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#approach" class="nav-link">Approach</a>
+        <a href="#vision" class="nav-link">Vision</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://app.cyvara.co/?logout=true" class="nav-login">Client login</a>
+        <a href="#products" class="nav-cta">Explore Waypoint</a>
       </nav>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero">
         <div>
           <div class="pill">
             <div class="pill-dot"></div>
-            <span>24/7 AI receptionist • No missed leads</span>
+            <span>AI software for a better way forward</span>
           </div>
 
           <h1>
-            Turn calls, texts & clicks into
-            <span class="highlight">booked jobs automatically.</span>
+            We build AI software for
+            <span class="highlight">the problems that matter.</span>
           </h1>
 
           <p class="hero-subtitle">
-            Cyvara designs custom AI systems for local businesses that instantly respond to leads,
-            qualify requests, send estimates, and book appointments — without manual work.
+            Cyvara builds AI products that help people make better decisions, do more, and navigate complexity.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn-primary">Schedule free 15-min demo</a>
+            <a href="#products" class="btn-primary">Explore Waypoint →</a>
+            <a href="#approach" class="btn-ghost">Our approach</a>
           </div>
+        </div>
 
-          <p class="hero-footnote">
-            On average, clients see <span>20–40% more booked jobs</span> just from follow-up and instant replies.
-          </p>
+        <div class="eco-card" role="img" aria-label="Cyvara is the parent company. Waypoint is its first product. More products are coming.">
+          <svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="ecoGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#4f46e5"/>
+                <stop offset="1" stop-color="#22c55e"/>
+              </linearGradient>
+            </defs>
+
+            <path d="M180 64 V96 M62 96 H298 M62 96 V128 M180 96 V128 M298 96 V128"
+                  stroke="#4b5563" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+            <rect x="110" y="16" width="140" height="48" rx="14" fill="url(#ecoGrad)"/>
+            <text x="180" y="45" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" letter-spacing="3"
+                  font-family="system-ui, -apple-system, sans-serif">CYVARA</text>
+
+            <rect x="10" y="128" width="104" height="104" rx="16" fill="#0b1024" stroke="url(#ecoGrad)" stroke-width="2"/>
+            <text x="62" y="172" text-anchor="middle" fill="#f9fafb" font-size="13" font-weight="700" letter-spacing="1.5"
+                  font-family="system-ui, -apple-system, sans-serif">WAYPOINT</text>
+            <text x="62" y="192" text-anchor="middle" fill="#9ca3af" font-size="10.5"
+                  font-family="system-ui, -apple-system, sans-serif">Life &amp; career</text>
+            <text x="62" y="206" text-anchor="middle" fill="#9ca3af" font-size="10.5"
+                  font-family="system-ui, -apple-system, sans-serif">navigator</text>
+
+            <rect x="128" y="128" width="104" height="104" rx="16" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 5"/>
+            <text x="180" y="176" text-anchor="middle" fill="#6b7280" font-size="24" font-family="system-ui, -apple-system, sans-serif">+</text>
+            <text x="180" y="200" text-anchor="middle" fill="#6b7280" font-size="10.5" font-family="system-ui, -apple-system, sans-serif">Next product</text>
+
+            <rect x="246" y="128" width="104" height="104" rx="16" fill="none" stroke="#4b5563" stroke-width="1.5" stroke-dasharray="5 5"/>
+            <text x="298" y="176" text-anchor="middle" fill="#6b7280" font-size="24" font-family="system-ui, -apple-system, sans-serif">+</text>
+            <text x="298" y="200" text-anchor="middle" fill="#6b7280" font-size="10.5" font-family="system-ui, -apple-system, sans-serif">Next product</text>
+          </svg>
+          <p class="eco-caption">One company · Many products</p>
         </div>
       </section>
 
-      <section id="services" class="section">
-        <div class="section-header">
-          <h2 class="section-title">What we build for you</h2>
-          <p class="section-subtitle">
-            We design end-to-end AI systems that answer inquiries, qualify leads, send estimates,
-            and book appointments — tailored to how your business already runs today.
+      <section id="approach" class="section">
+        <div class="thesis">
+          <p class="thesis-label">Our thesis</p>
+          <p class="thesis-quote">
+            AI should help people <span class="highlight">navigate complexity</span>, not just generate information.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <div class="card-label">Service 01</div>
-            <div class="card-title">AI Reception & Lead Handling</div>
+            <div class="card-label">01</div>
+            <div class="card-title">Understands your context</div>
             <p class="card-body">
-              A custom-built AI receptionist that answers calls, messages, and website inquiries 24/7 —
-              capturing every lead and responding instantly with your voice and rules.
+              Generic answers don't move anyone forward. Our products learn your goals, constraints, and situation first.
             </p>
-            <ul class="card-list">
-              <li>Greets leads in your brand voice</li>
-              <li>Collects name, number, service & details</li>
-              <li>Handles common questions automatically</li>
-              <li>Sends a summary of every conversation to you</li>
-            </ul>
           </div>
 
           <div class="card">
-            <div class="card-label">Service 02</div>
-            <div class="card-title">Instant Estimates & Smart Follow-Ups</div>
+            <div class="card-label">02</div>
+            <div class="card-title">Helps you decide</div>
             <p class="card-body">
-              We convert your pricing and sales logic into an intelligent system that delivers
-              instant estimate ranges and automatically follows up to close more jobs.
+              We turn a sea of options into clear tradeoffs, so you can choose with confidence instead of guessing.
             </p>
-            <ul class="card-list">
-              <li>Custom pricing rules for your services</li>
-              <li>Instant quote ranges via text & email</li>
-              <li>1–3 day follow-up sequences for unbooked leads</li>
-              <li>Works across phone and website forms</li>
-            </ul>
           </div>
 
           <div class="card">
-            <div class="card-label">Service 03</div>
-            <div class="card-title">Scheduling & Workflow Automation</div>
+            <div class="card-label">03</div>
+            <div class="card-title">Gets you moving</div>
             <p class="card-body">
-              Your entire lead workflow — from first contact to booked appointment —
-              runs automatically through a connected backend built specifically for your business.
+              Insight is only useful if it leads somewhere. Every product is built to help you take the next real step.
             </p>
-            <ul class="card-list">
-              <li>Automatic booking into your existing calendar</li>
-              <li>Leads logged into simple tracking systems</li>
-              <li>Instant alerts for high-intent opportunities</li>
-              <li>Clear overview of lead status and outcomes</li>
-            </ul>
           </div>
         </div>
       </section>
 
-      <section id="pricing" class="section">
+      <section id="products" class="section">
         <div class="section-header">
-          <h2 class="section-title">Pricing & packages</h2>
+          <h2 class="section-title">Our products</h2>
           <p class="section-subtitle">
-            One-time setup to design and build your system, plus a simple monthly subscription
-            so we host, maintain, and continuously optimize everything for you.
+            One product at a time, each built to be genuinely useful before we build the next.
           </p>
         </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <div class="pricing-tag">Starter <span>· For solo operators</span></div>
-            <div class="price">$499 <span>setup</span></div>
-            <div class="price" style="font-size:14px; margin-bottom:8px;">$299 <span>/ month</span></div>
-            <p class="card-body">
-              A lightweight AI system that captures and organizes every lead so nothing slips through the cracks.
+        <div class="product">
+          <div>
+            <span class="product-tag">Product 01</span>
+            <h3 class="product-name">Waypoint</h3>
+            <p class="product-tagline">Find what's next.</p>
+            <p class="product-body">
+              An AI life and career navigator. Waypoint helps people understand themselves, explore careers,
+              and figure out what to do next.
             </p>
-            <ul class="card-list">
-              <li>Basic AI call / chat receptionist</li>
-              <li>Lead capture into a simple tracker</li>
-              <li>Email + SMS alerts for new leads</li>
-              <li>“We received your request” confirmation to customers</li>
-              <li>1 small update per month</li>
-            </ul>
-            <a href="#contact" class="pricing-cta">Get started with Starter →</a>
+            <a href="#contact" class="btn-primary">Get early access →</a>
           </div>
 
-          <div class="card" style="border-color: rgba(129,140,248,0.8); box-shadow: 0 14px 40px rgba(79,70,229,0.55); position: relative;">
-            <div class="badge-popular">Most popular</div>
-            <div class="pricing-tag">Pro <span>· For growing teams</span></div>
-            <div class="price">$999 <span>setup</span></div>
-            <div class="price" style="font-size:14px; margin-bottom:8px;">$499 <span>/ month</span></div>
-            <p class="card-body">
-              A fully automated AI-powered sales system that qualifies leads,
-              sends estimates, books appointments, and follows up automatically.
-            </p>
-            <ul class="card-list">
-              <li>Advanced AI call & chat flows</li>
-              <li>Custom pricing & estimate engine</li>
-              <li>Automatic SMS + email follow-up</li>
-              <li>Calendar booking & rescheduling</li>
-              <li>Up to 8 connected workflows</li>
-              <li>3 updates / optimizations per month</li>
-            </ul>
-            <a href="#contact" class="pricing-cta primary">Book a Pro demo →</a>
-          </div>
+          <ol class="journey" aria-label="How Waypoint works">
+            <li>Understand yourself</li>
+            <li>Explore possibilities</li>
+            <li>Test them in the real world</li>
+            <li>Make decisions</li>
+            <li>Move forward</li>
+          </ol>
+        </div>
 
-          <div class="card">
-            <div class="pricing-tag">Elite <span>· For high-volume teams</span></div>
-            <div class="price">$1999 <span>setup</span></div>
-            <div class="price" style="font-size:14px; margin-bottom:8px;">$999 <span>/ month</span></div>
-            <p class="card-body">
-              A full AI front desk built specifically for your operation — replacing manual lead handling
-              with intelligent automation across every channel you use.
-            </p>
-            <ul class="card-list">
-              <li>AI “employee” handling calls, chat & text</li>
-              <li>Custom simple dashboard for tracking leads</li>
-              <li>Advanced workflows</li>
-              <li>Priority support & ongoing refinements</li>
-              <li>Monthly performance review & strategy call</li>
-            </ul>
-            <a href="#contact" class="pricing-cta">Apply for Elite →</a>
-          </div>
+        <div class="product-soon">
+          <span><strong>More coming soon.</strong> Every Cyvara product is built around the same idea: AI that helps you take action.</span>
         </div>
       </section>
 
-      <section id="how" class="section">
-        <div class="section-header">
-          <h2 class="section-title">How it works</h2>
-          <p class="section-subtitle">
-            No complicated setup, no jargon. We handle the infrastructure — you get more booked work from the same leads.
-          </p>
-        </div>
-
-        <div class="how-grid">
-          <div class="card">
-            <div class="step-number">Step 01</div>
-            <div class="card-title">15-minute discovery call</div>
-            <p class="card-body">
-              We learn about your business, services, pricing, and how you currently handle calls, messages, and leads.
+      <section id="vision" class="section">
+        <div class="vision">
+          <div>
+            <h2>One company. Many products. <span class="highlight">One growing understanding of you.</span></h2>
+            <p>
+              Over time, Cyvara products are designed to work together. The goals, preferences, and context you choose to share
+              in one product can help you in the next, so you never have to start from scratch.
+            </p>
+            <div class="chips">
+              <span class="chip">Goals</span>
+              <span class="chip">Preferences</span>
+              <span class="chip">Projects</span>
+              <span class="chip">Decisions</span>
+              <span class="chip">Constraints</span>
+            </div>
+            <p>
+              That's the difference between a collection of apps and an ecosystem.
             </p>
           </div>
 
-          <div class="card">
-            <div class="step-number">Step 02</div>
-            <div class="card-title">We design your AI system</div>
-            <p class="card-body">
-              We turn your process into clear flows and build your AI receptionist, estimate logic,
-              and follow-up engine around your rules and preferences.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="step-number">Step 03</div>
-            <div class="card-title">Connect to your existing tools</div>
-            <p class="card-body">
-              We connect your new system to the tools you already use — phone, calendar, website forms,
-              and any internal tracking you rely on.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="step-number">Step 04</div>
-            <div class="card-title">Go live & optimize</div>
-            <p class="card-body">
-              We launch, monitor performance, and keep refining scripts and workflows so your system books more work over time.
-            </p>
+          <div class="context-stack">
+            <div class="context-row"><strong>Waypoint</strong>Knows you're figuring out your career.</div>
+            <div class="context-row"><strong>A future Cyvara product</strong>Could know you're building a company.</div>
+            <div class="context-row"><strong>Another</strong>Could help you protect your runway while you do.</div>
           </div>
         </div>
       </section>
 
       <section id="contact" class="section">
         <div class="section-header">
-          <h2 class="section-title">Book a free demo</h2>
+          <h2 class="section-title">Get in touch</h2>
           <p class="section-subtitle">
-            Tell us a bit about your business and we’ll show you exactly how an AI receptionist + automation system could work for you.
+            Want early access to Waypoint, or have a question about what we're building? Send us a note.
           </p>
         </div>
 
         <div class="contact">
           <div class="contact-card">
-            <h3>Let’s see if this fits your business</h3>
+            <h3>Say hello</h3>
             <p>
-              No pressure, no long pitch — just a quick walkthrough of what we can automate for you and
-              what it could add in extra booked jobs each month.
+              We read every message and reply personally.
             </p>
 
             <form action="https://formspree.io/f/mzznqkae" method="POST">
-              <input type="hidden" name="_subject" value="New Cyvara Demo Booking" />
+              <input type="hidden" name="_subject" value="New Cyvara Inquiry" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_redirect" value="https://cyvara.co/#contact" />
 
               <div>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="John Smith" required />
+                <input id="name" name="name" type="text" placeholder="Jane Smith" required />
               </div>
 
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@business.com" required />
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
               </div>
 
               <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" required />
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
               </div>
 
               <div>
-                <label for="niche">Business type</label>
-                <select id="niche" name="business_type" required>
+                <label for="interest">I'm interested in</label>
+                <select id="interest" name="interest" required>
                   <option value="">Choose one</option>
-                  <option>Roofing</option>
-                  <option>Landscaping</option>
-                  <option>Car detailing</option>
-                  <option>Plumbing / HVAC</option>
-                  <option>Cleaning</option>
-                  <option>Gym / Fitness</option>
-                  <option>Med spa</option>
-                  <option>Other</option>
+                  <option>Early access to Waypoint</option>
+                  <option>Custom AI systems for my business</option>
+                  <option>Partnerships or press</option>
+                  <option>Something else</option>
                 </select>
               </div>
 
               <div>
-                <label for="message">What do you want to automate?</label>
-                <textarea id="message" name="message" placeholder="Missed calls, quoting, booking, follow-up, etc." required></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for." required></textarea>
               </div>
 
               <div class="checkbox-row">
@@ -836,25 +843,24 @@
                 Cyvara does not share SMS opt-in consent or phone numbers with third parties for marketing purposes.
               </p>
 
-              <button type="submit" class="btn-submit">Submit demo request</button>
+              <button type="submit" class="btn-submit">Send message</button>
             </form>
           </div>
 
           <div class="mini-faq">
-            <p><strong>Do I need new software?</strong></p>
+            <p><strong>What is Cyvara?</strong></p>
             <p>
-              No. We plug into what you already use — your current phone setup, calendar, website, and internal tools —
-              and build the automation layer around it.
+              An AI software company. We build products that help people make better decisions and navigate complexity.
             </p>
 
-            <p style="margin-top:8px;"><strong>How fast can we go live?</strong></p>
+            <p style="margin-top:8px;"><strong>What is Waypoint?</strong></p>
             <p>
-              Most Starter & Pro systems are live within 7–10 days after our first call, depending on complexity.
+              Our first product: an AI life and career navigator that helps you understand yourself, explore careers, and figure out what's next.
             </p>
 
-            <p style="margin-top:8px;"><strong>What if we don’t like it?</strong></p>
+            <p style="margin-top:8px;"><strong>Do you still build custom AI systems for businesses?</strong></p>
             <p>
-              If you don’t see value in the first 30 days, you can cancel your subscription — no long-term contract.
+              Yes. Choose "Custom AI systems for my business" in the form and we'll be in touch. Existing clients can use the client login above.
             </p>
           </div>
         </div>
@@ -954,18 +960,11 @@
         </p>
       </section>
 
+
     </main>
 
-    <div class="client-login">
-      <h3>Already a client?</h3>
-      <p>Sign in to your client dashboard to track what Cyvara is doing for your business.</p>
-      <a class="dashboard-cta" href="https://app.cyvara.co/?logout=true">
-        Client Dashboard Login
-      </a>
-    </div>
-
     <footer>
-      © <span>Cyvara</span> · Intelligent automation for modern local businesses. · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a>
+      © 2026 <span>Cyvara</span> · AI software for a better way forward. · <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a> · <a href="https://app.cyvara.co/?logout=true">Client login</a>
     </footer>
   </div>
 </body>
