@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Waypoint | Find what's next — AI life &amp; career navigator</title>
+  <meta name="description" content="Waypoint is an AI life and career navigator that helps you understand yourself, explore careers, test them in the real world, and figure out what to do next. A Cyvara product." />
+  <meta name="theme-color" content="#06060e" />
+  <link rel="canonical" href="https://cyvara.co/waypoint/" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Waypoint by Cyvara" />
+  <meta property="og:title" content="Waypoint | Find what's next" />
+  <meta property="og:description" content="An AI life and career navigator. Understand yourself, explore careers, and figure out what to do next." />
+  <meta property="og:url" content="https://cyvara.co/waypoint/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Shared icons & logo -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="wpGrad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#a5b4fc"/><stop offset="0.5" stop-color="#f0abfc"/><stop offset="1" stop-color="#fcd34d"/>
+      </linearGradient>
+    </defs>
+    <symbol id="waypoint" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#wpGrad)" stroke-width="5" opacity="0.9"/>
+      <path d="M50 20 L58 42 L80 50 L58 58 L50 80 L42 58 L20 50 L42 42 Z" fill="url(#wpGrad)"/>
+    </symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  </svg>
+
+  <!-- Nav -->
+  <div class="nav-shell">
+    <header class="nav">
+      <a href="#top" class="brand" aria-label="Waypoint home">
+        <svg aria-hidden="true"><use href="#waypoint"/></svg>
+        Waypoint <small>by Cyvara</small>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#why">Why Waypoint</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-right">
+        <a class="nav-back" href="https://cyvara.co"><svg class="i" aria-hidden="true"><use href="#i-arrow-l"/></svg> Cyvara</a>
+        <a class="btn btn-primary btn-sm" href="#access">Get early access <svg class="i" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="i i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i i-x" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#how">How it works</a>
+      <a href="#why">Why Waypoint</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://cyvara.co">Back to Cyvara</a>
+      <a class="btn btn-primary" href="#access">Get early access <svg class="i" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+        <div class="gridlines"></div>
+      </div>
+
+      <div class="wrap">
+        <div class="hero-inner">
+          <span class="announce reveal">
+            <span class="dot"></span>
+            <span><b>Waypoint</b> — an AI life &amp; career navigator</span>
+          </span>
+
+          <h1 class="reveal" style="--d:.08s">Find <span class="serif grad">what's next.</span></h1>
+
+          <p class="lede reveal" style="--d:.16s">
+            Waypoint helps you understand yourself, explore careers, and figure out what to do next — one clear step at a time.
+          </p>
+
+          <div class="signup-wrap reveal" style="--d:.24s">
+            <form class="signup" action="https://formspree.io/f/mzznqkae" method="POST" data-ajax>
+              <input type="hidden" name="_subject" value="Waypoint early access signup" />
+              <input type="hidden" name="_redirect" value="https://cyvara.co/waypoint/#access" />
+              <input type="hidden" name="source" value="waypoint hero" />
+              <label class="sr" for="hero-email">Email address</label>
+              <input id="hero-email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required />
+              <button type="submit" class="btn btn-primary">Get early access</button>
+            </form>
+            <p class="signup-note form-status" role="status" aria-live="polite">Free to join. We'll email you when early access opens.</p>
+          </div>
+        </div>
+
+        <div class="trail-wrap reveal" style="--d:.32s">
+          <div class="trail" data-observe role="img" aria-label="Your route with Waypoint: Understand, Explore, Test, Decide, Move forward.">
+            <svg class="route" viewBox="0 0 1200 290" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="routeGrad" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="1100" y2="0">
+                  <stop stop-color="#a5b4fc"/><stop offset="0.5" stop-color="#f0abfc"/><stop offset="1" stop-color="#fcd34d"/>
+                </linearGradient>
+              </defs>
+              <path class="route-ghost" d="M100 200 C225 200 225 90 350 90 C475 90 475 200 600 200 C725 200 725 90 850 90 C975 90 975 200 1100 200"/>
+              <path class="route-draw" pathLength="1" d="M100 200 C225 200 225 90 350 90 C475 90 475 200 600 200 C725 200 725 90 850 90 C975 90 975 200 1100 200"/>
+              <g class="route-dot" transform="translate(100 200)">
+                <g>
+                  <circle r="18" fill="rgba(251,191,36,0.25)"/>
+                  <circle r="6" fill="#fff"/>
+                  <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M0 0 C125 0 125 -110 250 -110 C375 -110 375 0 500 0 C625 0 625 -110 750 -110 C875 -110 875 0 1000 0"/>
+                  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.06;0.94;1" dur="9s" repeatCount="indefinite"/>
+                </g>
+              </g>
+            </svg>
+
+            <div class="stop down" style="--x:100;--y:200;--i:0"><i></i><span class="lbl"><small>01</small>Understand</span></div>
+            <div class="stop up" style="--x:350;--y:90;--i:1"><i></i><span class="lbl"><small>02</small>Explore</span></div>
+            <div class="stop down" style="--x:600;--y:200;--i:2"><i></i><span class="lbl"><small>03</small>Test</span></div>
+            <div class="stop up" style="--x:850;--y:90;--i:3"><i></i><span class="lbl"><small>04</small>Decide</span></div>
+            <div class="stop down" style="--x:1100;--y:200;--i:4"><i></i><span class="lbl"><small>05</small>Move forward</span></div>
+          </div>
+
+          <ol class="trail-list" aria-label="Your route with Waypoint">
+            <li><i></i><div><b>Understand yourself</b><span>Strengths, interests, values, constraints.</span></div></li>
+            <li><i></i><div><b>Explore possibilities</b><span>Paths you'd never think to search for.</span></div></li>
+            <li><i></i><div><b>Test in the real world</b><span>Small experiments before big commitments.</span></div></li>
+            <li><i></i><div><b>Make decisions</b><span>Tradeoffs made visible.</span></div></li>
+            <li><i></i><div><b>Move forward</b><span>A concrete next step.</span></div></li>
+          </ol>
+        </div>
+
+        <div class="stage reveal" style="--d:.1s">
+          <div class="window" role="img" aria-label="Illustrative preview of Waypoint comparing three career directions side by side, each with why it fits, a typical week, the biggest tradeoff, and something to try this week.">
+            <div class="window-bar" aria-hidden="true">
+              <i></i><i></i><i></i>
+              <span class="window-url">cyvara.co/waypoint/compare</span>
+            </div>
+            <div class="window-body compare" aria-hidden="true">
+              <div class="cmp-head">
+                <div>
+                  <h3>Your directions</h3>
+                  <p>Based on what you've told Waypoint so far</p>
+                </div>
+                <div class="tabs"><span>Overview</span><span class="on">Compare</span><span>Experiments</span></div>
+              </div>
+
+              <div class="dirs">
+                <div class="dir top">
+                  <span class="fit">Strongest fit</span>
+                  <h4>Product design</h4>
+                  <dl>
+                    <div><dt>Why it fits</dt><dd>You light up when people use what you built, and you think in systems.</dd></div>
+                    <div><dt>A typical week</dt><dd>Research, prototyping, critique, shipping.</dd></div>
+                    <div><dt>Biggest tradeoff</dt><dd>Crowded entry-level market.</dd></div>
+                    <div><dt>Try this week</dt><dd>Redesign one flow you use every day.</dd></div>
+                  </dl>
+                </div>
+                <div class="dir">
+                  <span class="fit">Good fit</span>
+                  <h4>Developer relations</h4>
+                  <dl>
+                    <div><dt>Why it fits</dt><dd>You explain things clearly and enjoy helping others get unstuck.</dd></div>
+                    <div><dt>A typical week</dt><dd>Docs, talks, community, feedback loops.</dd></div>
+                    <div><dt>Biggest tradeoff</dt><dd>Less hands-on building.</dd></div>
+                    <div><dt>Try this week</dt><dd>Write a short tutorial and share it.</dd></div>
+                  </dl>
+                </div>
+                <div class="dir">
+                  <span class="fit">Worth a test</span>
+                  <h4>Early-stage startups</h4>
+                  <dl>
+                    <div><dt>Why it fits</dt><dd>You value autonomy and like wearing several hats.</dd></div>
+                    <div><dt>A typical week</dt><dd>A bit of everything, all at once.</dd></div>
+                    <div><dt>Biggest tradeoff</dt><dd>Less stability, uneven pay.</dd></div>
+                    <div><dt>Try this week</dt><dd>Talk to two founders about their first year.</dd></div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="next-bar"><span>Next step: pick one experiment to run this week.</span><svg class="i" aria-hidden="true"><use href="#i-arrow-r"/></svg></div>
+            </div>
+          </div>
+          <p class="stage-note">Illustrative preview of Waypoint</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statement -->
+    <section class="thesis sec" style="padding-top:clamp(60px,9vw,120px)">
+      <div class="wrap">
+        <p class="thesis-text" data-words style="text-align:center;margin-inline:auto">Most tools give you information. <span class="serif">Waypoint gives you direction.</span></p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="sec" id="how" style="padding-top:0">
+      <div class="wrap">
+        <div class="journey">
+          <div class="journey-side reveal">
+            <p class="eyebrow">How it works</p>
+            <h2 class="h2">Five steps from <span class="serif grad">unsure</span> to underway.</h2>
+            <p class="lede">Waypoint doesn't hand you a list of job titles. It walks with you from self-understanding all the way to a decision and a plan.</p>
+            <ul class="dots" aria-hidden="true">
+              <li class="on">Understand yourself</li>
+              <li>Explore possibilities</li>
+              <li>Test them in the real world</li>
+              <li>Make decisions</li>
+              <li>Move forward</li>
+            </ul>
+          </div>
+
+          <div class="steps">
+            <article class="card spot step">
+              <p class="n">01</p>
+              <h3>Understand yourself</h3>
+              <p>Waypoint starts with you — your strengths, interests, values, and constraints — through real conversation, not a 200-question quiz.</p>
+              <span class="get"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> You get a clear picture of what drives you</span>
+            </article>
+            <article class="card spot step">
+              <p class="n">02</p>
+              <h3>Explore possibilities</h3>
+              <p>See paths you'd never think to search for, and understand what each one is actually like day to day.</p>
+              <span class="get"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> You get a shortlist worth your time</span>
+            </article>
+            <article class="card spot step">
+              <p class="n">03</p>
+              <h3>Test them in the real world</h3>
+              <p>Small, low-risk experiments — conversations to have, projects to try, skills to sample — so you learn by doing before you commit.</p>
+              <span class="get"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> You get evidence, not guesses</span>
+            </article>
+            <article class="card spot step">
+              <p class="n">04</p>
+              <h3>Make decisions</h3>
+              <p>Compare your options side by side against what matters to you, with every tradeoff out in the open.</p>
+              <span class="get"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> You get a decision you can stand behind</span>
+            </article>
+            <article class="card spot step">
+              <p class="n">05</p>
+              <h3>Move forward</h3>
+              <p>Leave with a next step and a plan, not just an insight. Waypoint keeps track of where you are and what comes after.</p>
+              <span class="get"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> You get momentum</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Waypoint -->
+    <section class="sec" id="why" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="eyebrow">Why Waypoint</p>
+          <h2 class="h2">Built to feel like a <span class="serif grad">guide</span>, not a search box.</h2>
+          <p class="lede">Career advice online is either generic or overwhelming. Waypoint is personal, honest about tradeoffs, and built around taking action.</p>
+        </div>
+
+        <div class="bento6">
+          <article class="card spot s4 reveal">
+            <div class="viz">
+              <div class="profile" aria-hidden="true">
+                <div class="tag-group"><h4>Strengths</h4><div class="tags"><span class="tag on">Empathy</span><span class="tag on">Systems thinking</span><span class="tag">Writing</span></div></div>
+                <div class="tag-group"><h4>Values</h4><div class="tags"><span class="tag on">Impact</span><span class="tag on">Autonomy</span><span class="tag">Craft</span></div></div>
+                <div class="tag-group"><h4>Constraints</h4><div class="tags"><span class="tag">Stay near family</span><span class="tag">Stable income</span></div></div>
+              </div>
+            </div>
+            <h3>Knows you, not just your résumé</h3>
+            <p>Waypoint builds a living picture of your strengths, interests, values, and constraints, then uses it to make every suggestion personal.</p>
+          </article>
+
+          <article class="card spot s2 reveal" style="--d:.08s">
+            <div class="viz">
+              <div class="mini-chat" aria-hidden="true">
+                <div class="bub">What did you lose track of time doing last week?</div>
+                <div class="bub me">Rebuilding my friend's portfolio site.</div>
+                <div class="typing" style="justify-self:start"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <h3>A conversation, not a quiz</h3>
+            <p>Talk it through in your own words. Waypoint asks the questions a great mentor would.</p>
+          </article>
+
+          <article class="card spot s2 reveal">
+            <div class="viz">
+              <div class="trade" aria-hidden="true">
+                <div class="pro"><b>+</b> Strong fit with your strengths</div>
+                <div class="pro"><b>+</b> Room to grow into leadership</div>
+                <div class="con"><b>–</b> Slower first six months</div>
+              </div>
+            </div>
+            <h3>Tradeoffs, made visible</h3>
+            <p>Every option comes with an honest look at what you gain and what you give up.</p>
+          </article>
+
+          <article class="card spot s2 reveal" style="--d:.08s">
+            <div class="viz">
+              <div class="exp" aria-hidden="true">
+                <div class="done"><b><svg class="i"><use href="#i-check"/></svg></b>Talk to someone in the role</div>
+                <div class="done"><b><svg class="i"><use href="#i-check"/></svg></b>Shadow a working day</div>
+                <div class="now"><b></b>Build a weekend project</div>
+              </div>
+            </div>
+            <h3>Test before you commit</h3>
+            <p>Small experiments let you learn what a path feels like before it costs you years.</p>
+          </article>
+
+          <article class="card spot s2 reveal" style="--d:.16s">
+            <div class="viz">
+              <div class="why" aria-hidden="true">
+                <strong><svg class="i"><use href="#i-spark"/></svg> Why this suggestion?</strong>
+                <ul>
+                  <li>You enjoy seeing people use your work</li>
+                  <li>You want autonomy over your day</li>
+                </ul>
+              </div>
+            </div>
+            <h3>Explains its reasoning</h3>
+            <p>Ask “why this?” at any point and see exactly what shaped a recommendation.</p>
+          </article>
+
+          <article class="card spot s6 reveal">
+            <div class="timeline" aria-hidden="true">
+              <div><small>Today</small><b>Exploring three directions</b><span>Waypoint helps you see what each one really involves.</span></div>
+              <div><small>After a few experiments</small><b>One direction rises</b><span>Your real-world results update the picture.</span></div>
+              <div><small>Next</small><b>Apply, learn, or pivot</b><span>Your plan adapts as you do.</span></div>
+            </div>
+            <div class="carry">
+              <h3 style="margin:18px 0 6px">Your direction changes. Waypoint keeps up.</h3>
+              <p>People change, and so do their answers. Waypoint remembers where you've been and helps with what comes next. Over time, the context you choose to share can carry into other <a href="https://cyvara.co">Cyvara</a> products.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audience -->
+    <section class="sec" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="eyebrow">Who it's for</p>
+          <h2 class="h2">For anyone standing at a <span class="serif grad">crossroads.</span></h2>
+        </div>
+      </div>
+      <div class="marquee reveal" aria-label="People Waypoint is built for">
+        <div class="marquee-track">
+          <span>Choosing a major</span><span>Changing careers</span><span>Just starting out</span><span>Returning to work</span><span>Feeling stuck</span><span>Weighing a big move</span><span>Outgrowing your job</span><span>Building something of your own</span>
+          <span aria-hidden="true">Choosing a major</span><span aria-hidden="true">Changing careers</span><span aria-hidden="true">Just starting out</span><span aria-hidden="true">Returning to work</span><span aria-hidden="true">Feeling stuck</span><span aria-hidden="true">Weighing a big move</span><span aria-hidden="true">Outgrowing your job</span><span aria-hidden="true">Building something of your own</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="h2">Questions, <span class="serif grad">answered.</span></h2>
+        </div>
+
+        <div class="faq-wrap reveal">
+          <details class="qa">
+            <summary>What is Waypoint? <span class="pm"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <div class="a">Waypoint is an AI life and career navigator. It helps you understand yourself, explore careers, test them in the real world, and decide what to do next.</div>
+          </details>
+          <details class="qa">
+            <summary>Is Waypoint available yet? <span class="pm"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <div class="a">Not yet. We're building it now. Join the early access list and we'll email you when early access opens.</div>
+          </details>
+          <details class="qa">
+            <summary>Do I need to know what I want to do? <span class="pm"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <div class="a">No. Waypoint is built for people who don't have the answer yet. That's the whole point.</div>
+          </details>
+          <details class="qa">
+            <summary>How much will it cost? <span class="pm"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <div class="a">We haven't announced pricing yet. Joining the early access list is free.</div>
+          </details>
+          <details class="qa">
+            <summary>What happens to the information I share? <span class="pm"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <div class="a">We use what you share to run your Waypoint experience and to contact you about Waypoint. Read the full details in our <a href="https://cyvara.co/#privacy">Privacy Policy</a>.</div>
+          </details>
+          <details class="qa">
+            <summary>Who makes Waypoint? <span class="pm"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <div class="a">Waypoint is the first product from <a href="https://cyvara.co">Cyvara</a>, an AI software company building products that help people make better decisions and navigate complexity.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access -->
+    <section class="sec" id="access" style="padding-top:0">
+      <div class="wrap">
+        <div class="cta-panel reveal">
+          <span class="badge">Early access</span>
+          <h2 style="margin-top:22px">Be first to find <span class="serif grad">what's next.</span></h2>
+          <p>Join the early access list and we'll email you when Waypoint is ready for you.</p>
+
+          <form class="access-form" action="https://formspree.io/f/mzznqkae" method="POST" data-ajax>
+            <input type="hidden" name="_subject" value="Waypoint early access signup" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_redirect" value="https://cyvara.co/waypoint/#access" />
+            <input type="hidden" name="source" value="waypoint access form" />
+
+            <div class="field">
+              <label for="a-name">First name (optional)</label>
+              <input id="a-name" name="name" type="text" autocomplete="given-name" placeholder="Jane" />
+            </div>
+            <div class="field">
+              <label for="a-email">Email</label>
+              <input id="a-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="a-topic">What are you figuring out? (optional)</label>
+              <select id="a-topic" name="figuring_out">
+                <option value="">Choose one</option>
+                <option>Choosing a major or path</option>
+                <option>Changing careers</option>
+                <option>Just starting out</option>
+                <option>Feeling stuck</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Join early access</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="consent">We'll email you about Waypoint early access. See our <a href="https://cyvara.co/#privacy">Privacy Policy</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="#top" class="brand"><svg aria-hidden="true"><use href="#waypoint"/></svg> Waypoint</a>
+          <p class="tagline">Find what's next.</p>
+          <p class="parent">A product of <a href="https://cyvara.co">Cyvara</a> — AI software for a better way forward.</p>
+        </div>
+        <div>
+          <h4>Waypoint</h4>
+          <ul>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#why">Why Waypoint</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#access">Early access</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Cyvara</h4>
+          <ul>
+            <li><a href="https://cyvara.co">About Cyvara</a></li>
+            <li><a href="https://cyvara.co/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="https://cyvara.co/#privacy">Privacy Policy</a></li>
+            <li><a href="https://cyvara.co/#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>© 2026 Cyvara. All rights reserved.</span>
+        <span>support@cyvara.co</span>
+      </div>
+    </div>
+    <div class="wordmark" aria-hidden="true">Waypoint</div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
